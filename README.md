@@ -38,7 +38,7 @@
 * Quá trình này sẽ xóa sạch toàn bộ bộ nhớ flash, bao gồm bootloader, firmware, và các phần dữ liệu khác.
 ***
 ## *Cách để thêm thư viện ngoài (external) vào esp-idf* ##
-1. Sử dụng Git Submodule
+1. Sử dụng Git Submodule (Recommend)
    - Nếu thư viện bạn muốn thêm vào có sẵn trên Github hoặc một repo Git khác, các bạn có thể sử dụng Git Submodule để tự động tải thư viện vào dự án của mình
    - Các bước:
     * Thêm Submodule vào dự án của bạn: `git submodule add <URL của repo Git> components/ten_thu_vien`
@@ -49,7 +49,14 @@
      > Lưu ý là nên tạo 1 folder `**components**` riêng bên trong dự án của bạn chứ không nên tạo vào folder `**components**` thư viện chuẩn của esp-idf. Bởi vì:
      > - Cập nhật Esp-idf có thể ghi đè lên thư mục hoặc làm xung đột với thư viện bạn thêm vào.
      > - Giúp tách biệt mã nguồn của esp-idf với các thư viện bên ngoài, và giúp bạn dễ dàng quản lý.
-
+  ***
+  ### *Xóa Submodule ra khỏi dự án của bạn* ###
+  - Quá trình xóa Submodule cần xóa dữ liệu ở nhiều nơi, bao gồm:
+    1. File `.gitmodule`
+    2. File trong `.git\config`
+    3. Thư mục `.git\modules`
+    4. Xóa thư mục submodule trong dự án của bạn
+  ***
 2. Sử dụng `idf.py` với `components`
    - Esp-idf có một cơ chế đơn giản để tự động tải thư viện ngoài bằng cách sử dụng `idf.py` kết hợp với hệ thống quản lý component của esp-idf
    - Các bước:
