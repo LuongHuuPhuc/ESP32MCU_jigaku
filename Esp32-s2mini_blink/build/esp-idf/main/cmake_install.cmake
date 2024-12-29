@@ -1,4 +1,4 @@
-# Install script for directory: D:/Esp-idf/Esp32-s2mini_blink/main
+# Install script for directory: D:/Esp-idf/Esp32MCU_jigaku/Esp32-s2mini_blink/main
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

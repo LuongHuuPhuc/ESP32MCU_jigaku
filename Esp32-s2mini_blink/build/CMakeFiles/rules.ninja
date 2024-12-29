@@ -1419,7 +1419,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_main_
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = D:\Esp-idf\Espressif\tools\cmake\3.24.0\bin\cmake.exe --regenerate-during-build -SD:\Esp-idf\Esp32-s2mini_blink -BD:\Esp-idf\Esp32-s2mini_blink\build
+  command = D:\Esp-idf\Espressif\tools\cmake\3.24.0\bin\cmake.exe --regenerate-during-build -SD:\Esp-idf\Esp32MCU_jigaku\Esp32-s2mini_blink -BD:\Esp-idf\Esp32MCU_jigaku\Esp32-s2mini_blink\build
   description = Re-running CMake...
   generator = 1
 

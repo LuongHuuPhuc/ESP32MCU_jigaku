@@ -18,6 +18,7 @@ void app_main(){
         ESP_LOGI(TAG, "Led is on");
         vTaskDelay(200 / portTICK_PERIOD_MS); //Delay 0.5s
 
+        //Tat led
         gpio_set_level(BLINK_LED_GPIO, 0);
         ESP_LOGI(TAG, "Led is off");
         vTaskDelay(200 /portTICK_PERIOD_MS); 

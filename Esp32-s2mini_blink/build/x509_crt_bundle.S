@@ -1,4 +1,4 @@
-/* * Data converted from D:/Esp-idf/Esp32-s2mini_blink/build/esp-idf/mbedtls/x509_crt_bundle
+/* * Data converted from D:/Esp-idf/Esp32MCU_jigaku/Esp32-s2mini_blink/build/esp-idf/mbedtls/x509_crt_bundle
  */
 .data
 .section .rodata.embedded

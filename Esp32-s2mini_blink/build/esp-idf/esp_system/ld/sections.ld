@@ -1,6 +1,6 @@
 /* Automatically generated file; DO NOT EDIT */
 /* Espressif IoT Development Framework Linker Script */
-/* Generated from: D:\Esp-idf\Esp32-s2mini_blink\build\esp-idf\esp_system\ld\sections.ld.in */
+/* Generated from: D:\Esp-idf\Esp32MCU_jigaku\Esp32-s2mini_blink\build\esp-idf\esp_system\ld\sections.ld.in */
 
 /*
 
