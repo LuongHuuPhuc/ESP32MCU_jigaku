@@ -81,3 +81,30 @@ lib_deps =
 ```
    * Build lại dự án: `platform run`. PlatformIO sẽ tự động tải và thêm thư viện vào dự án của bạn
 
+***
+### Cách loại bỏ folder `build` khi up lên gitHub ###
+Folder `build` được tạo ra trong qua trình biên dịch dự án Esp-idf, đây là thư mục tạm, chứa tất cả các file và dữ liệu cần thiết để biên dịch, liên kết và tạo firmware cuối cùng.
+#### Nội dung chính của thư mục `build` ####
+1. File nhị phân (Binary)
+   * `firmware.bin` hoặc `project_name.bin`: File firmware cuối cùng để nạp vào Esp32
+   * `bootloader.bin`: Bootloader khởi động chip Esp32.
+   * `partition-table.bin`: Bảng phân vùng xác định các khu vực bộ nhớ
+2. File liên quan đến quá trình biên dịch
+   * Object file (`*.o`): File đối tượng được tạo ra từ các file mã nguồn (`.c`, `.cpp`) sau khi được biên dịch
+   * File liên kết (`*.elf`): File liên kết (Executable and Linkable Format) là sản phẩm trung gian trước khi tạo file nhị phân (`.bin`)
+   * File bản đồ (`*.map`): File cung cấp thông tin về cách mã chương trình và dữ liệu được sắp xếp trong bộ nhớ.
+3. Cấu hình dự án:
+   * `config/sdkconfig`: File cấu hình SDK dựa trên những gì bạn đã chọn trong `menuconfig`.
+4. Log và Metadata
+   * `build.ninja` hoặc `Makefile`: Các file dùng bởi hệ thống build để kiểm soát quy trình biên dịch
+   * Log files: Ghi lại chi tiết quá trình biên dịch, rất hữu ích khi debug
+5. Các file phụ trợ:
+   * Generated headers (`*.h`): Các file tiêu đề được tạo tự động từ quá trình biên dịch, ví dụ, file liên quan đến bảng phân dùng hoặc cấu hình
+   * Flash script: Các script hỗ trợ nào vào firmware
+**** 
+#### Cách loại bỏ folder này khi up lên gitHub ####
+Do dung lượng lớn và không cần thiết khi show lên các project nên ta loại bỏ:
+1. Tạo hoặc chỉnh sửa file `.gitignore`
+   * Nếu bạn chưa có file `.gitignore`, tạo 1 file trong thư mục gốc cuae repo:
+  
+
