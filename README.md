@@ -106,5 +106,23 @@ Folder `build` được tạo ra trong qua trình biên dịch dự án Esp-idf,
 Do dung lượng lớn và không cần thiết khi show lên các project nên ta loại bỏ:
 1. Tạo hoặc chỉnh sửa file `.gitignore`
    * Nếu bạn chưa có file `.gitignore`, tạo 1 file trong thư mục gốc cuae repo:
-  
-
+   ```
+   touch .gitignore
+   ```
+   * Mở file `.gitignore` và thêm dòng sau để bỏ qua tất cả các folder `build` trong mọi thư mụcL
+   ```
+   **/build/
+   ```
+2. Xác minh rằng folder `build` sẽ bị bỏ qua
+   * Kiểm tra trạng thái Git để xác minh rằng các folder `build` không được thêm vào staged files:
+   ```
+   git status
+   ```
+3. Nếu folder `build` được thêm trước đó
+   * Nếu folder `build` được thêm vào repo và bạn muốn xóa nó ra khỏi repo nhưng vẫn giữ chúng trong local, thực hiện các bước sau: <br>
+   Bước 1: Xóa folder `build` khỏi repo (không xóa khỏi local), sử dụng lệnh sau:
+```
+git rm -r --cached **/build/
+```
+   Bước 2: Commit thay đổi.<br>
+   Bước 3: Push lên remote repo
