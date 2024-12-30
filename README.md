@@ -120,9 +120,9 @@ Do dung lượng lớn và không cần thiết khi show lên các project nên 
    ```
 3. Nếu folder `build` được thêm trước đó
    * Nếu folder `build` được thêm vào repo và bạn muốn xóa nó ra khỏi repo nhưng vẫn giữ chúng trong local, thực hiện các bước sau: <br>
-   Bước 1: Xóa folder `build` khỏi repo (không xóa khỏi local), sử dụng lệnh sau:
-```
-git rm -r --cached **/build/
-```
-   Bước 2: Commit thay đổi.<br>
-   Bước 3: Push lên remote repo
+   - Bước 1: Xóa folder `build` khỏi repo (không xóa khỏi local), sử dụng lệnh sau:
+   ```
+   git rm -r --cached **/build/
+   ```
+   - Bước 2: Commit thay đổi.<br>
+   - Bước 3: Push lên remote repo
