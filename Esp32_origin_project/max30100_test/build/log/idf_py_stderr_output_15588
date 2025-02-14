@@ -1,9 +1,0 @@
-CMake Error at D:/Esp-idf/Espressif/frameworks/esp-idf-v5.2.3/tools/cmake/build.cmake:268 (message):
-  Failed to resolve component 'max30100'.
-Call Stack (most recent call first):
-  D:/Esp-idf/Espressif/frameworks/esp-idf-v5.2.3/tools/cmake/build.cmake:310 (__build_resolve_and_add_req)
-  D:/Esp-idf/Espressif/frameworks/esp-idf-v5.2.3/tools/cmake/build.cmake:607 (__build_expand_requirements)
-  D:/Esp-idf/Espressif/frameworks/esp-idf-v5.2.3/tools/cmake/project.cmake:605 (idf_build_process)
-  CMakeLists.txt:7 (project)
-
-

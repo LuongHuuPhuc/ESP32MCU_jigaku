@@ -1,7 +1,0 @@
-CMake Error at D:/Esp-idf/Espressif/frameworks/esp-idf-v5.2.3/tools/cmake/project.cmake:407 (message):
-  Directory specified in EXTRA_COMPONENT_DIRS doesn't exist: /component
-Call Stack (most recent call first):
-  D:/Esp-idf/Espressif/frameworks/esp-idf-v5.2.3/tools/cmake/project.cmake:491 (__project_init)
-  CMakeLists.txt:7 (project)
-
-
