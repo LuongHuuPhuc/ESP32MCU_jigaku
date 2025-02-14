@@ -1,0 +1,20 @@
+-- IDF_TARGET not set, using default target: esp32
+-- Found Git: D:/Esp-idf/Espressif/tools/idf-git/2.44.0/cmd/git.exe (found version "2.44.0.windows.1") 
+-- ccache will be used for faster recompilation
+-- The C compiler identification is GNU 13.2.0
+-- The CXX compiler identification is GNU 13.2.0
+-- The ASM compiler identification is GNU
+-- Found assembler: D:/Esp-idf/Espressif/tools/xtensa-esp-elf/esp-13.2.0_20230928/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc.exe
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: D:/Esp-idf/Espressif/tools/xtensa-esp-elf/esp-13.2.0_20230928/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc.exe - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: D:/Esp-idf/Espressif/tools/xtensa-esp-elf/esp-13.2.0_20230928/xtensa-esp-elf/bin/xtensa-esp32-elf-g++.exe - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Building ESP-IDF components for target esp32
+-- Configuring incomplete, errors occurred!
+See also "D:/Esp-idf/Esp32MCU_jigaku/max30100_test/build/CMakeFiles/CMakeOutput.log".

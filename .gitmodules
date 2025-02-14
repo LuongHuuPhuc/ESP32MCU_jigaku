@@ -1,0 +1,9 @@
+[submodule "components/VL53L0X"]
+	path = components/VL53L0X
+	url = https://github.com/revk/ESP32-VL53L0X
+[submodule "components/MAX30100"]
+	path = components/MAX30100
+	url = https://github.com/aedalzotto/esp32-max30100
+[submodule "components/SSD1306"]
+	path = components/SSD1306
+	url = https://github.com/lexus2k/ssd1306

@@ -1,0 +1,15 @@
+[0;33m--- Warning: GDB cannot open serial ports accessed as COMx[0m
+[0;33m--- Using \\.\COM17 instead...[0m
+[0;33m--- esp-idf-monitor 1.5.0 on \\.\COM17 115200[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H[0m
+[0;33m--- 0x42009176: max30102_task at D:/Esp-idf/Esp32MCU_jigaku/Esp32_c3mini1_project/max30102_test/main/max30102_test.c:38 (discriminator 1)
+[0m
+[0;33m--- 0x403852cb: _esp_error_check_failed at D:/Esp-idf/Espressif/frameworks/esp-idf-v5.4/components/esp_system/esp_err.c:49
+[0m
+[0;33m--- Stack dump detected[0m
+[0;33m--- 0x40380880: panic_abort at D:/Esp-idf/Espressif/frameworks/esp-idf-v5.4/components/esp_system/panic.c:468
+0x403852d6: __ubsan_include at D:/Esp-idf/Espressif/frameworks/esp-idf-v5.4/components/esp_system/ubsan.c:311
+[0m
+[0;33m--- 0x40380001: _vector_table at D:/Esp-idf/Espressif/frameworks/esp-idf-v5.4/components/riscv/vectors_intc.S:54
+[0m
+[0m

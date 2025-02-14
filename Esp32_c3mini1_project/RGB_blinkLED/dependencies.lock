@@ -1,0 +1,17 @@
+dependencies:
+  espressif/led_strip:
+    dependencies: []
+    source:
+      path: D:\Esp-idf\Esp32MCU_jigaku\Esp32_c3mini1_project\RGB_blinkLED\managed_components\espressif__led_strip
+      type: local
+    version: 2.5.5
+  idf:
+    source:
+      type: idf
+    version: 5.4.0
+direct_dependencies:
+- espressif/led_strip
+- idf
+manifest_hash: 5f7bb06ba8507929340ae52c7dc24dae0953b86e8c650b494972bee0397ebb2a
+target: esp32c3
+version: 2.0.0

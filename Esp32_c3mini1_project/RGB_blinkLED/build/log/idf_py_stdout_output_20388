@@ -1,0 +1,10 @@
+[0/1] Re-running CMake...
+-- ccache will be used for faster recompilation
+-- Building ESP-IDF components for target esp32c3
+NOTICE: Using component placed at D:\Esp-idf\Esp32MCU_jigaku\Esp32_c3mini1_project\RGB_blinkLED\managed_components\espressif__led_strip for dependency "espressif/led_strip", specified in D:\Esp-idf\Esp32MCU_jigaku\Esp32_c3mini1_project\RGB_blinkLED\main\idf_component.yml
+NOTICE: Processing 2 dependencies:
+NOTICE: [1/2] espressif/led_strip (2.5.5) (D:\Esp-idf\Esp32MCU_jigaku\Esp32_c3mini1_project\RGB_blinkLED\managed_components\espressif__led_strip)
+NOTICE: [2/2] idf (5.4.0)
+-- Configuring incomplete, errors occurred!
+FAILED: build.ninja 
+D:\Esp-idf\Espressif\tools\cmake\3.30.2\bin\cmake.exe --regenerate-during-build -SD:\Esp-idf\Esp32MCU_jigaku\Esp32_c3mini1_project\RGB_blinkLED -BD:\Esp-idf\Esp32MCU_jigaku\Esp32_c3mini1_project\RGB_blinkLED\build

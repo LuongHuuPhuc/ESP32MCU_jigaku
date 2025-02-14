@@ -1,0 +1,72 @@
+��7 ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x1574
+load:0x403cc710,len:0xc30
+load:0x403ce710,len:0x2f58
+entry 0x403cc71a
+[0;32mI (30) boot: ESP-IDF v5.4-dirty 2nd stage bootloader[0m
+[0;32mI (30) boot: compile time Feb  2 2025 18:44:28[0m
+[0;32mI (30) boot: chip revision: v0.4[0m
+[0;32mI (31) boot: efuse block revision: v1.3[0m
+[0;32mI (34) boot.esp32c3: SPI Speed      : 80MHz[0m
+[0;32mI (38) boot.esp32c3: SPI Mode       : DIO[0m
+[0;32mI (42) boot.esp32c3: SPI Flash Size : 4MB[0m
+[0;32mI (46) boot: Enabling RNG early entropy source...[0m
+[0;32mI (50) boot: Partition Table:[0m
+[0;32mI (53) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (59) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (66) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (72) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (79) boot: End of partition table[0m
+[0;32mI (82) esp_image: segment 0: paddr=00010020 vaddr=3c020020 size=0a0c8h ( 41160) map[0m
+[0;32mI (96) esp_image: segment 1: paddr=0001a0f0 vaddr=3fc8d400 size=01314h (  4884) load[0m
+[0;32mI (97) esp_image: segment 2: paddr=0001b40c vaddr=40380000 size=04c0ch ( 19468) load[0m
+[0;32mI (108) esp_image: segment 3: paddr=00020020 vaddr=42000020 size=1a33ch (107324) map[0m
+[0;32mI (129) esp_image: segment 4: paddr=0003a364 vaddr=40384c0c size=08618h ( 34328) load[0m
+[0;32mI (135) esp_image: segment 5: paddr=00042984 vaddr=50000200 size=0001ch (    28) load[0m
+[0;32mI (139) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (140) boot: Disabling RNG early entropy source...[0m
+[0;32mI (154) cpu_start: Unicore app[0m
+[0;32mI (162) cpu_start: Pro cpu start user code[0m
+[0;32mI (162) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (162) app_init: Application information:[0m
+[0;32mI (162) app_init: Project name:     max30102_test[0m
+[0;32mI (167) app_init: App version:      b72f95d-dirty[0m
+[0;32mI (171) app_init: Compile time:     Feb 11 2025 19:30:27[0m
+[0;32mI (176) app_init: ELF file SHA256:  d3ccd4262...[0m
+[0;32mI (180) app_init: ESP-IDF:          v5.4-dirty[0m
+[0;32mI (185) efuse_init: Min chip rev:     v0.4[0m
+[0;32mI (188) efuse_init: Max chip rev:     v1.99 [0m
+[0;32mI (192) efuse_init: Chip rev:         v0.4[0m
+[0;32mI (196) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (203) heap_init: At 3FC8F670 len 00030990 (194 KiB): RAM[0m
+[0;32mI (208) heap_init: At 3FCC0000 len 0001C710 (113 KiB): Retention RAM[0m
+[0;32mI (214) heap_init: At 3FCDC710 len 00002950 (10 KiB): Retention RAM[0m
+[0;32mI (220) heap_init: At 5000021C len 00001DCC (7 KiB): RTCRAM[0m
+[0;32mI (226) spi_flash: detected chip: generic[0m
+[0;32mI (229) spi_flash: flash io: dio[0m
+[0;33mW (232) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (241) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (248) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (266) main_task: Started on CPU0[0m
+[0;32mI (266) main_task: Calling app_main()[0m
+[0;32mI (276) main_task: Returned from app_main()[0m
+[1;31mE (276) i2cdev: Could not read from device [0x57 at 0]: -1 (ESP_FAIL)[0m
+[1;31mE (276) Max30102: Max30102 read ID failed !: ESP_FAIL[0m
+
+FreeRTOS: FreeRTOS Task "max30102_test" should not return, Aborting now!
+Core  0 register dump:
+MEPC    : 0x40380880  RA      : 0x4038625a  SP      : 0x3fc92fb0  GP      : 0x3fc8dc00  
+TP      : 0x3fc92fe0  T0      : 0x40380ece  T1      : 0x20000000  T2      : 0x00000000  
+S0/FP   : 0x00000000  S1      : 0x00000000  A0      : 0x3fc8d7e4  A1      : 0x3c024123  
+A2      : 0x00000023  A3      : 0x00000000  A4      : 0x00000001  A5      : 0x3fc8f000  
+A6      : 0x60023000  A7      : 0x0000000a  S2      : 0x00000000  S3      : 0x00000000  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000000  S7      : 0x00000000  
+S8      : 0x00000000  S9      : 0x00000000  S10     : 0x00000000  S11     : 0x00000000  
+T3      : 0x00000000  T4      : 0x00000000  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x00001881  MTVEC   : 0x40380001  MCAUSE  : 0x00000002  MTVAL   : 0x00000000  
+MHARTID : 0x00000000  
+
