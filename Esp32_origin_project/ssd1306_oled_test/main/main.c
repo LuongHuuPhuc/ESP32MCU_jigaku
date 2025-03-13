@@ -14,12 +14,12 @@
 #include "ssd1306_fonts.h"
 #include "ssd1306_1bit.h"
 
-//Cau hinh chan spi 
+//Cau hinh chan spi     
 #define SPI_MOSI_PIN 23 
 #define SPI_SCK_PIN 18
 #define SPI_CS_PIN 5
-#define SPI_DC_PIN 16 //Data/command 
-#define SPI_RST_PIN 17
+#define SPI_DC_PIN 2 //Data/command 
+#define SPI_RST_PIN 4
 
 #define TAG "ssd1306"
 
@@ -45,18 +45,13 @@ void display_task(void *pvParameters){
 
     ssd1306_fillScreen(0x00); //Xoa man hinh
 
-    const char *text1 = "HELLO BAN";
-    const char *text2 = "Ban da bi lua mat: ";
-    const char *text3 = "9 CU !";
-    const char *text4 = "Vui long an nhieu OT";
-    const char *text5 = "de thong minh hon...";
-
     ssd1306_setFixedFont(ssd1306xled_font6x8); //Set font chu 6x8
 
     //Hien thi chu len man hinh 
     ssd1306_printFixed(0, 8, "HELLO ESP32 !", STYLE_BOLD);
     vTaskDelay(pdMS_TO_TICKS(1000));
 
+    vTaskDelay(1000);
     ssd1306_fillScreen(0x00); //Xoa man hinh 
     ssd1306_printFixed(0, 16, "HELLO PHUC !", STYLE_BOLD);
 

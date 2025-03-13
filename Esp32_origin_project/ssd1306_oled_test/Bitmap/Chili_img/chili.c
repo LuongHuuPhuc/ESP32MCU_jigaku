@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <_stdint.h>
+#include <stdint.h>
 
 // Bitmap hình quả ớt (kích thước 16x16 pixel)
 const uint8_t chili_bitmap[] = {
