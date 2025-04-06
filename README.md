@@ -4,7 +4,7 @@
 ## **Cài đặt phần mềm** ##
 * Download phiên bản mới nhất của Espressif qua gitHub (cho Windows)"
 [Espressif gitHub](https://github.com/espressif/esp-idf)
-* Sau khi cài đặt phần mềm sẽ tạo ra cho chúng ra 2 trình command prompt để hiển thị mỗi khi lập trình cho Esp32:
+* Sau khi cài đặt phần mềm sẽ tạo ra cho chúng ra 2 trình command prompt để hiển thị mỗi khi lập trình cho Esp32: <br>
   ![image](https://github.com/user-attachments/assets/81a37dcb-e5cb-4623-b240-5a10183e09de)
 > Tốt nhất khi cài đặt hãy tạo riêng 1 folder cho phần mềm để đễ dàng kiểm soát
   Trong framework tải về nhà phát hành đã có sẵn những project nhỏ bên trong để chúng ta thực hành
