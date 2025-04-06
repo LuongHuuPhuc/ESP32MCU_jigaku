@@ -153,9 +153,8 @@ Bạn cần: <br>
   .gitmodules
   ```
   * Có `.gitmodules` theo dõi
-  * Khi người khác clone project của bạn bằng máy khác để dùng thì có thể tự động clone luôn submodule (thư viện) kèm theo `git clone --recurse-submodules` trong khi đó `git clone` chỉ clone mã nguồn chính, các thư viện sẽ bị thiếu -> Bạn phải clone lại từng 
+  * Khi người khác clone project của bạn bằng máy khác để dùng thì có thể tự động clone luôn submodule (thư viện) kèm theo `git clone --recurse-submodules` trong khi đó `git clone` chỉ clone mã nguồn chính, các thư viện sẽ bị thiếu -> Bạn phải clone lại từng cái
   * Tự động cập nhật thư viện: Dễ update theo remote thư viện gốc hoặc fork
-  * 
   ***
   ### Cách loại bỏ folder `build` khi up lên gitHub ###
   Folder `build` được tạo ra trong qua trình biên dịch dự án Esp-idf, đây là thư mục tạm, chứa tất cả các file và dữ liệu cần thiết để biên dịch, liên kết và tạo firmware cuối cùng.
