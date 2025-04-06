@@ -81,22 +81,22 @@ lib_deps =
 ```
    * Build lại dự án: `platform run`. PlatformIO sẽ tự động tải và thêm thư viện vào dự án của bạn
 ***
-#### Cách làm việc với `git submodule` ####
+### **Cách làm việc với `git submodule`** ###
 `git submodule` là lệnh giúp bạn nhúng một repo Git bên trong một repo khác. Điều này rất hữu ích khi bạn muốn sử dụng thư viện bên ngoài (ví dụ như driver hay SDK,...) nhưng vẫn giữ liên kết với nguồn gốc của thư viện đó (repo chính chủ ) <br>
-1. Thêm submodule
+1. **Thêm submodule**
    ```bash
    git submodule add <repo_url> <path>
    ```
    Lệnh này sẽ clone repo vào thư mục bạn chỉ định, ghi link vào `.gitmodules`
    > ví dụ: `git submodule add https://github.com/lexus2k/ssd1306 components/SSD1306`
-2. Cập nhật submodule
+2. **Cập nhật submodule**
    ```bash
    git submodule update --init --recursive 
    ```
    > `--init`: Init nếu submodule chưa được clone
    > `--recursive` Áp dụng cho cả submodule lồng trong
    Dùng sau khi clone về lần đầu hoặc khi người khác gửi bạn repo có submodule
-3. Cập nhật submodule từ chính chủ (upstream)
+3. **Cập nhật submodule từ chính chủ (upstream)**
 Bạn cần: <br>
  - Thêm remote `upstream` vào bên trong submodule:
    ```bash
@@ -113,7 +113,7 @@ Bạn cần: <br>
   # hoặc
   git rebase upstream/master
   ```
-4. Tùy chỉnh submodule để sửa đổi (folk)
+4. **Tùy chỉnh submodule để sửa đổi (folk)**
    Nếu bạn muốn fork submodule về repo của bạn để:
    - Có thể sửa mã mà không ảnh hưởng đến repo chính chủ
    - Dễ push code lên fork của bạn
@@ -136,12 +136,12 @@ Bạn cần: <br>
   Việc làm trên sẽ giúp bạn vừa có thể thay đổi mã trong repo bản sao của chính chủ ở local ở repo riêng biệt của bạn và vừa có thể cập nhật những update mới từ repo của chính chủ.
 * Bước 4: Sau khi làm xong những bước trên thì bạn chỉ cần dùng lệnh `git push origin main/master` để đẩy bản sao của repo chính chủ lên repo mà bạn đã tạo trước đó. Và những thay đổi mà bạn làm cho repo đó (như sửa code,..) thì đều không ảnh hưởng đến repo chính chủ. Nếu bạn cần cập nhật lại phiên bản mới nhất từ repo chính chủ thì có thể dùng lệnh ` git submodule update` hoặc `git pull upstream master/main (theo nhánh của repo chính chủ)` hoặc `git  fetch upstream` + `git merge upstream/master`  ! <br>
 😅 Nhược điểm:
-* Phức tạp hơn `git clone`
-* Phải nhớ từng bước sync/fetch riêng
-* Gây rối nếu không dùng đúng quy trình
+  * Phức tạp hơn `git clone`
+  * Phải nhớ từng bước sync/fetch riêng
+  * Gây rối nếu không dùng đúng quy trình <br> 
 🥸 Ưu điểm
-* Quản lý theo phiên bản repo (Mỗi submodule gắn với 1 commit cụ thể)
-* Repo chính sẽ tự ghi nhớ URL và commit cụ thể của từng thư viện:
+ * Quản lý theo phiên bản repo (Mỗi submodule gắn với 1 commit cụ thể)
+ * Repo chính sẽ tự ghi nhớ URL và commit cụ thể của từng thư viện:
   ```css
     components/
   ├── MAX30100/   ← submodule trỏ đến 1 commit của repo riêng
@@ -150,13 +150,13 @@ Bạn cần: <br>
   
   .gitmodules
   ```
-* Có `.gitmodules` theo dõi
-* Khi người khác clone project của bạn bằng máy khác để dùng thì có thể tự động clone luôn submodule (thư viện) kèm theo `git clone --recurse-submodules` trong khi đó `git clone` chỉ clone mã nguồn chính, các thư viện sẽ bị thiếu -> Bạn phải clone lại từng 
-* Tự động cập nhật thư viện: Dễ update theo remote thư viện gốc hoặc fork
-* 
-***
-### Cách loại bỏ folder `build` khi up lên gitHub ###
-Folder `build` được tạo ra trong qua trình biên dịch dự án Esp-idf, đây là thư mục tạm, chứa tất cả các file và dữ liệu cần thiết để biên dịch, liên kết và tạo firmware cuối cùng.
+  * Có `.gitmodules` theo dõi
+  * Khi người khác clone project của bạn bằng máy khác để dùng thì có thể tự động clone luôn submodule (thư viện) kèm theo `git clone --recurse-submodules` trong khi đó `git clone` chỉ clone mã nguồn chính, các thư viện sẽ bị thiếu -> Bạn phải clone lại từng 
+  * Tự động cập nhật thư viện: Dễ update theo remote thư viện gốc hoặc fork
+  * 
+  ***
+  ### Cách loại bỏ folder `build` khi up lên gitHub ###
+  Folder `build` được tạo ra trong qua trình biên dịch dự án Esp-idf, đây là thư mục tạm, chứa tất cả các file và dữ liệu cần thiết để biên dịch, liên kết và tạo firmware cuối cùng.
 #### Nội dung chính của thư mục `build` ####
 1. File nhị phân (Binary)
    * `firmware.bin` hoặc `project_name.bin`: File firmware cuối cùng để nạp vào Esp32
