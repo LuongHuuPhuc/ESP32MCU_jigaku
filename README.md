@@ -81,7 +81,7 @@ lib_deps =
 ```
    * Build lại dự án: `platform run`. PlatformIO sẽ tự động tải và thêm thư viện vào dự án của bạn
 ***
-### **Cách làm việc với `git submodule`** ###
+## **Cách làm việc với `git submodule`** ##
 `git submodule` là lệnh giúp bạn nhúng một repo Git bên trong một repo khác. Điều này rất hữu ích khi bạn muốn sử dụng thư viện bên ngoài (ví dụ như driver hay SDK,...) nhưng vẫn giữ liên kết với nguồn gốc của thư viện đó (repo chính chủ ) <br>
 1. **Thêm submodule**
    ```bash
@@ -138,7 +138,8 @@ Bạn cần: <br>
 😅 Nhược điểm:
   * Phức tạp hơn `git clone`
   * Phải nhớ từng bước sync/fetch riêng
-  * Gây rối nếu không dùng đúng quy trình <br> 
+  * Gây rối nếu không dùng đúng quy trình <br>
+
 🥸 Ưu điểm
  * Quản lý theo phiên bản repo (Mỗi submodule gắn với 1 commit cụ thể)
  * Repo chính sẽ tự ghi nhớ URL và commit cụ thể của từng thư viện:
