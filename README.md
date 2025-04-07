@@ -113,7 +113,7 @@ Bạn cần: <br>
   # hoặc
   git rebase upstream/master
   ```
-4. **Tùy chỉnh submodule để sửa đổi (folk)**
+4. **Tùy chỉnh submodule để sửa đổi (folk)** <br>
    Nếu bạn muốn fork submodule về repo của bạn để:
    - Có thể sửa mã mà không ảnh hưởng đến repo chính chủ
    - Dễ push code lên fork của bạn
