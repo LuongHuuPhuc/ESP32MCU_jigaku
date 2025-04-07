@@ -1,6 +1,6 @@
 [submodule "components/VL53L0X"]
 	path = components/VL53L0X
-	url = https://github.com/revk/ESP32-VL53L0X
+	url = https://github.com/LuongHuuPhuc/VL53L0X_idf
 [submodule "components/MAX30100"]
 	path = components/MAX30100
 	url = https://github.com/aedalzotto/esp32-max30100
