@@ -1,6 +1,8 @@
 /**
- * \name ECG signal measure
- * \note Chi do raw data, khong can bo loc
+ * @name ECG su dung bo timer trong esp32
+ * @note Bo timer la phan cung chuyen biet trong MCU esp32 dung de tao ra cac su kien 
+ * dinh ky doc lap voi CPU. Day la ly do no khong bi WDT reset, trong khi vTaskDelay()
+ * thi co the bi
  */
 #include <stdio.h>
 #include <stdint.h>
