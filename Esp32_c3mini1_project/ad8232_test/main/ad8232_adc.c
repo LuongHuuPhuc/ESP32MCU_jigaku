@@ -15,7 +15,7 @@
 #include "filter_master_ecg.h"
 #include "esp_timer.h"
 
-#define ADC_CHANNEL ADC_CHANNEL_1 //GPIO1 
+#define ADC_CHANNEL ADC_CHANNEL_1 //GPIO1 (tren Esp32c3), ADC_CHANNEL_6 (Esp32 - GPIO34)
 #define ADC_UNIT ADC_UNIT_1
 #define ADC_ATTEN ADC_ATTEN_DB_12 //Tang pham vi do 
 #define ADC_WIDTH ADC_WIDTH_BIT_12
