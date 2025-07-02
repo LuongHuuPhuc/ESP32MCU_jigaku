@@ -117,6 +117,7 @@ Bạn cần: <br>
    Nếu bạn muốn fork submodule về repo của bạn để:
    - Có thể sửa mã mà không ảnh hưởng đến repo chính chủ
    - Dễ push code lên fork của bạn
+
 👉Làm như sau:
  * Bước 1: Tạo 1 repo để chứa thư viện bạn cần fork trên gitHub
  * Bước 2: Chuyển `url` submodule của repo chính chủ mà bạn đã `git submodule add` từ đầu sang link repo mà bạn vừa tạo.
@@ -135,6 +136,55 @@ Bạn cần: <br>
   ```
   Việc làm trên sẽ giúp bạn vừa có thể thay đổi mã trong repo bản sao của chính chủ ở local ở repo riêng biệt của bạn và vừa có thể cập nhật những update mới từ repo của chính chủ.
 * Bước 4: Sau khi làm xong những bước trên thì bạn chỉ cần dùng lệnh `git push origin main/master` để đẩy bản sao của repo chính chủ lên repo mà bạn đã tạo trước đó. Và những thay đổi mà bạn làm cho repo đó (như sửa code,..) thì đều không ảnh hưởng đến repo chính chủ. Nếu bạn cần cập nhật lại phiên bản mới nhất từ repo chính chủ thì có thể dùng lệnh ` git submodule update` hoặc `git pull upstream master/main (theo nhánh của repo chính chủ)` hoặc `git  fetch upstream` + `git merge upstream/master`  ! <br>
+
+## **Quy trình merge từ upstream về repo riêng** ##
+### Bước 1: Kiểm tra ###
+```bash
+git remote -v
+```
+Đảm bảo thấy:
+``` scss
+origin    git@github.com:yourname/your-repo.git
+upstream  git@github.com:original-author/original-repo.git
+```
+### Bước 2: Fetch dữ liệu từ upstream ###
+```bash
+git fetch upstream
+```
+### Bước 3: Kiểm tra branch trên upstream ###3
+```bash
+git branch -r
+```
+Ví dụ bạn thấy: 
+```bash
+upstream/master
+origin/master
+```
+### Bước 4: Merge branch upstream vào branch local ###
+```bash
+git checkout main     # hoặc master
+git merge upstream/main
+```
+Nếu muốn lịch sử commit sạch: 
+```bash
+git rebase upstream/main
+```
+### Bước 5: Xử lý conflict (nếu có) ###
+* Mở các file bị conflict (ví dụ trên vscode)
+* Chọn:
+   - `Accept Current` -> Giữ code như của bạn
+   - `Accept Incoming` -> Nhận thay đổi từ upstream
+   - `Accept Combination` -> Chấp nhận cả 2
+
+ ✔️ Sau khi sửa xong: 
+ ```bash
+git add <file>
+git commit
+```
+### Bước 6: Đẩy lên repo của bạn ###
+```bash
+git push origin master/main
+```
 
 😅 Nhược điểm:
   * Phức tạp hơn `git clone`
