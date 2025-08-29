@@ -96,7 +96,7 @@ lib_deps =
    > `--init`: Init nếu submodule chưa được clone
    > `--recursive` Áp dụng cho cả submodule lồng trong
    Dùng sau khi clone về lần đầu hoặc khi người khác gửi bạn repo có submodule
-3. **Cập nhật submodule từ chính chủ (upstream)**
+3. **Cập nhật submodule từ chính chủ (upstream)** <br>
 Bạn cần: <br>
  - Thêm remote `upstream` vào bên trong submodule:
    ```bash
