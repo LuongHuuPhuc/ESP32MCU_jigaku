@@ -113,19 +113,55 @@ Bạn cần: <br>
   # hoặc
   git rebase upstream/master
   ```
-4. **Tùy chỉnh submodule để sửa đổi (folk)** <br>
-   Nếu bạn muốn fork submodule về repo của bạn để:
+4. **Tùy chỉnh submodule để sửa đổi ** <br>
+   Nếu bạn muốn lưu submodule về máy của hay local repo của bạn để:
    - Có thể sửa mã mà không ảnh hưởng đến repo chính chủ
-   - Dễ push code lên fork của bạn
-
+   - Dễ push code lên remote repo riêng của bạn
+   - Vẫn có thể cập nhật và update những thay đổi mới từ repo chính chủ
+ 
+  Cách 1: Fork Repo gốc từ chính chủ
 👉Làm như sau:
- * Bước 1: Tạo 1 repo để chứa thư viện bạn cần fork trên gitHub
+* Bước 1: Lên GitHub, vào repo người khác -> bấm fork để tạo bản sao về gitHub của bạn. Repo fork này hoàn toàn thuộc quyền của bạn, commit tự do
+* Bước 2: Clone repo đã fork đó về máy bạn (thành local repo)
+* Bước 3: Thêm remote `upstream` trỏ về repo gốc
+  
+  ```bash
+  git clone https://github.com/<your-username>/<forked-repo>.git
+  cd <forked-repo>
+  ```
+* Bước 3: Thêm remote `upstream` trỏ về repo gốc (chính chủ, dùng cho mục đích cập nhật thông tin, thay đổi sau này nếu có)
+  ```bash
+  git remote add upstream https://github.com/<original-owner>/<original-repo>.git
+  ```
+  Kiểm tra bằng: `git remote -v` sẽ thấy có 2 remote:
+  - `origin` -> repo fork của bạn (push code ở đây)
+  - `upstream` -> repo gốc chính chủ (chỉ kéo update về)
+* Bước 4: Đồng bộ với repo gốc khi người ta update
+  ```bash
+  git fetch upstream
+  git checkout main
+  git merge upstream/main
+  ```
+  hoặc nhanh hơn với rebase
+  ``` bash
+  git pull upstream main --rebase
+  ```
+* Bước 5: Push lên repo fork của bạn
+  ```bash
+  git push origin main
+  ``` 
+
+  Cách 2: Tạo 1 repo rỗng (khi này repo của bạn trên gitHub sẽ không có chữ `forked`) - thủ công 
+👉Làm như sau:
+ * Bước 1: Tạo 1 remote repo để chứa thư viện bạn cần fork trên gitHub (repo rỗng)
  * Bước 2: Chuyển `url` submodule của repo chính chủ mà bạn đã `git submodule add` từ đầu sang link repo mà bạn vừa tạo.
    ```bash
    git config -f .gitmodules submodule.<path/to/your/library>.url + <link repo của bạn>
    git submodule sync #Dùng để đồng bộ URL sau khi sửa file .gitmodules
    ```
    ✅ Khi đó, `git clone` về sẽ lấy từ repo của bạn thay vì repo chính chủ
+   
+   - Với repo thường mà không phải là submodule thì chỉ cần `git clone` về máy như bình thường là được 
 * Bước 3: Khi này folder chứa repo mà bạn submodule vẫn đang liên kết `remote` với repo chính chủ, thế nên bạn cần thay đổi nó với link repo chứa thư viện bạn cần fork mà bạn đã tạo lúc nãy.
   ```bash
   git remote set-url origin + <link repo của bạn> # Lúc này origin sẽ lấy bạn làm mặc định
@@ -138,6 +174,7 @@ Bạn cần: <br>
 * Bước 4: Sau khi làm xong những bước trên thì bạn chỉ cần dùng lệnh `git push origin main/master` để đẩy bản sao của repo chính chủ lên repo mà bạn đã tạo trước đó. Và những thay đổi mà bạn làm cho repo đó (như sửa code,..) thì đều không ảnh hưởng đến repo chính chủ. Nếu bạn cần cập nhật lại phiên bản mới nhất từ repo chính chủ thì có thể dùng lệnh ` git submodule update` hoặc `git pull upstream master/main (theo nhánh của repo chính chủ)` hoặc `git  fetch upstream` + `git merge upstream/master`  ! <br>
 
 ## **Quy trình merge từ upstream về repo riêng** ##
+Merge 
 ### Bước 1: Kiểm tra ###
 ```bash
 git remote -v
