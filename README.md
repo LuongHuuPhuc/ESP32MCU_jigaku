@@ -103,7 +103,7 @@ Bạn cần: <br>
    cd <path>
    git remote add upstream https://github...<repo chính chủ>
    ```
-- Lấy các update từ chính chủ
+- Lấy các update từ chính chủ (update từ remote về nhưng không merge và không ảnh hưởng đến code hiện tại ở local)
   ```bash
   git fetch upstream
   ```
@@ -151,7 +151,7 @@ upstream  git@github.com:original-author/original-repo.git
 ```bash
 git fetch upstream
 ```
-### Bước 3: Kiểm tra branch trên upstream ###3
+### Bước 3: Kiểm tra branch trên upstream ###
 ```bash
 git branch -r
 ```
