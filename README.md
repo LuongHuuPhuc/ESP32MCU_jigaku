@@ -113,7 +113,7 @@ Bạn cần: <br>
   # hoặc
   git rebase upstream/master
   ```
-4. **Tùy chỉnh submodule để sửa đổi**
+4. **Tùy chỉnh submodule để sửa đổi** <br>
    Nếu bạn muốn lưu submodule về máy của hay local repo của bạn để:
    - Có thể sửa mã mà không ảnh hưởng đến repo chính chủ
    - Dễ push code lên remote repo riêng của bạn
