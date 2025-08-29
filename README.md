@@ -97,7 +97,7 @@ lib_deps =
    > `--recursive` Áp dụng cho cả submodule lồng trong
    Dùng sau khi clone về lần đầu hoặc khi người khác gửi bạn repo có submodule
 3. **Cập nhật submodule từ chính chủ (upstream)** <br>
-Bạn cần: <br>
+Bạn cần:
  - Thêm remote `upstream` vào bên trong submodule:
    ```bash
    cd <path>
