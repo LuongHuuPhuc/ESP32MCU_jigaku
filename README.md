@@ -90,13 +90,17 @@ lib_deps =
    Lệnh này sẽ clone repo vào thư mục bạn chỉ định, ghi link vào `.gitmodules`
    > ví dụ: `git submodule add https://github.com/lexus2k/ssd1306 components/SSD1306`
 2. **Cập nhật submodule**
-   ```bash
+     ```bash
    git submodule update --init --recursive 
    ```
-   > `--init`: Init nếu submodule chưa được clone
-   > `--recursive` Áp dụng cho cả submodule lồng trong
-   Dùng sau khi clone về lần đầu hoặc khi người khác gửi bạn repo có submodule
-3. **Cập nhật submodule từ chính chủ (upstream)** <br>
+   > `--init`: Init nếu submodule chưa được clone <br>
+   > `--recursive` Áp dụng cho cả submodule lồng trong <br>
+   > Dùng sau khi clone về lần đầu hoặc khi người khác gửi bạn repo có submodule
+
+   - Lệnh này được dùng để đồng bộ code trong repo con (hay thư mục submodule) về đúng commit mà repo đang tham chiếu đến (được lưu trong file `.gitmodules` và commit commit repo cha)
+   - Nó không tự động `fetch` commit mới nhất từ remote của repo con submodule mà chỉ `checkout` đúng commit đã được ghi nhận
+
+4. **Cập nhật submodule từ chính chủ (upstream)** <br>
 Bạn cần:
  - Thêm remote `upstream` vào bên trong submodule:
    ```bash
@@ -185,7 +189,7 @@ Bạn cần:
   ```
   hoặc 
   ``` bash
-  git  fetch upstream` + `git merge upstream/master` 
+  git fetch upstream` + `git merge upstream/master` 
   ```
 
 ## **Quy trình merge từ upstream về repo riêng** ##
@@ -239,7 +243,12 @@ git push origin master/main
 ```
 ### ⚠ Lưu ý ###
  Trong trường hợp bạn repo thư viện đó là repo con của 1 repo cha khác, để thay đổi bắt buộc bạn phải `cd` đến folder chứa repo submodule đó để thực hiện các thao tác như `fetch`, `merge`, `pull`,...hoàn chỉnh rồi sau đó mới `cd..` ngược về repo cha để `git add` những thay đổi ở repo con đó, sau đó mới `push` lên repo remote trên gitHub vì repo con (submodule) đó vẫn là 1 repo độc lập !
- 
+ <img width="1231" height="360" alt="image" src="https://github.com/user-attachments/assets/b628cf83-5db5-43f6-a4b5-b473e764ad1e" />
+ Repo cha sẽ chỉ hiển các repo con ở dạng các con trỏ commit hash được trỏ bên trong file `.submodules` + index. Chỉ lưu hash commit của submodule, không lưu branch 
+ ```bash
+TenSubmodule @ commit Hash
+```
+
 😅 Nhược điểm:
   * Phức tạp hơn `git clone`
   * Phải nhớ từng bước sync/fetch riêng
