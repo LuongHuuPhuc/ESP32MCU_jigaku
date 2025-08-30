@@ -119,7 +119,7 @@ Bạn cần:
    - Dễ push code lên remote repo riêng của bạn
    - Vẫn có thể cập nhật và update những thay đổi mới từ repo chính chủ
  
-  Cách 1: Fork Repo gốc từ chính chủ
+## Cách 1: Fork Repo gốc từ chính chủ ##
 👉Làm như sau:
 * Bước 1: Lên GitHub, vào repo người khác -> bấm fork để tạo bản sao về gitHub của bạn. Repo fork này hoàn toàn thuộc quyền của bạn, commit tự do
 * Bước 2: Clone repo đã fork đó về máy bạn (thành local repo)
@@ -151,7 +151,7 @@ Bạn cần:
   git push origin main
   ``` 
 
-  Cách 2: Tạo 1 repo rỗng (khi này repo của bạn trên gitHub sẽ không có chữ `forked`) - thủ công 
+## Cách 2: Tạo 1 repo rỗng (khi này repo của bạn trên gitHub sẽ không có chữ `forked`) - thủ công ##
 👉Làm như sau:
  * Bước 1: Tạo 1 remote repo để chứa thư viện bạn cần fork trên gitHub (repo rỗng)
  * Bước 2: Chuyển `url` submodule của repo chính chủ mà bạn đã `git submodule add` từ đầu sang link repo mà bạn vừa tạo.
@@ -171,7 +171,22 @@ Bạn cần:
   git remote add upstream + <path repo chính chủ> #Thay vì origin thì đặt là upstream để làm tên cho repo chính chủ khi cần pull về 
   ```
   Việc làm trên sẽ giúp bạn vừa có thể thay đổi mã trong repo bản sao của chính chủ ở local ở repo riêng biệt của bạn và vừa có thể cập nhật những update mới từ repo của chính chủ.
-* Bước 4: Sau khi làm xong những bước trên thì bạn chỉ cần dùng lệnh `git push origin main/master` để đẩy bản sao của repo chính chủ lên repo mà bạn đã tạo trước đó. Và những thay đổi mà bạn làm cho repo đó (như sửa code,..) thì đều không ảnh hưởng đến repo chính chủ. Nếu bạn cần cập nhật lại phiên bản mới nhất từ repo chính chủ thì có thể dùng lệnh ` git submodule update` hoặc `git pull upstream master/main (theo nhánh của repo chính chủ)` hoặc `git  fetch upstream` + `git merge upstream/master`  ! <br>
+* Bước 4: Sau khi làm xong những bước trên thì bạn chỉ cần dùng lệnh `pull` để đẩy bản sao của repo chính chủ lên repo mà bạn đã tạo trước đó. Và những thay đổi mà bạn làm cho repo đó (như sửa code,..) thì đều không ảnh hưởng đến repo chính chủ.
+  ``` bash
+  git push origin main/master`
+  ```
+  - Nếu bạn cần cập nhật lại phiên bản mới nhất từ repo chính chủ thì có thể dùng lệnh:
+   ``` bash
+   git submodule update
+   ```
+  hoặc 
+  ``` bash 
+  git pull upstream master/main (theo nhánh của repo chính chủ)
+  ```
+  hoặc 
+  ``` bash
+  git  fetch upstream` + `git merge upstream/master` 
+  ```
 
 ## **Quy trình merge từ upstream về repo riêng** ##
 Merge 
