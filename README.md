@@ -98,8 +98,9 @@ lib_deps =
    > `--recursive` Áp dụng cho cả submodule lồng trong <br>
    > Dùng sau khi clone về lần đầu hoặc khi người khác gửi bạn repo có submodule
 
-   - Lệnh này được dùng để đồng bộ code trong repo con (hay thư mục submodule) về đúng commit mà repo đang tham chiếu đến (được lưu trong file `.gitmodules` và commit commit repo cha)
-   - Nó không tự động `fetch` commit mới nhất từ remote của repo con submodule mà chỉ `checkout` đúng commit đã được ghi nhận
+   - Lệnh này được dùng để đồng bộ code trong repo con (hay thư mục submodule) về đúng commit mà repo cha đang tham chiếu đến (được lưu trong file `.gitmodules` và commit commit repo cha)
+   - Nó không tự động `fetch` commit mới nhất từ remote của repo con submodule mà chỉ `checkout` đúng commit đã được ghi nhận.
+   - Đơn giản: Repo con (submodule) khi thay đổi -> Sinh ra commit hash mới -> repo cha muốn đồng bộ thì cần phải update con trỏ để trỏ đến đúng commit mới nhât của repo bằng lệnh trên !
 
 4. **Cập nhật submodule từ chính chủ (upstream)** <br>
 Bạn cần:
@@ -255,7 +256,7 @@ TenSubmodule @ commit Hash
   * Phải nhớ từng bước sync/fetch riêng
   * Gây rối nếu không dùng đúng quy trình <br>
 
-🥸 Ưu điểm
+😝 Ưu điểm
  * Quản lý theo phiên bản repo (Mỗi submodule gắn với 1 commit cụ thể)
  * Repo chính sẽ tự ghi nhớ URL và commit cụ thể của từng thư viện:
   ```css
