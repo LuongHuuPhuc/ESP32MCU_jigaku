@@ -1,4 +1,4 @@
-# **Lập trình vi điều khiển Esp32 sử dụng framework Esp-Idf** #
+# **Lập trình vi điều khiển ESP32 với framework ESP-IDF** #
 ## Esp32 Dev Board Datasheet ##
 ![image](https://github.com/user-attachments/assets/78d933e0-ab94-4725-8c80-3256b728e818)
 ## **Cài đặt phần mềm** ##
