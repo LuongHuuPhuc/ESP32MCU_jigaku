@@ -1,0 +1,11 @@
+#include <stdio.h>
+#include <stdint.h>
+#include <string.h>
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+#include "driver/i2c_master.h"
+#include "driver/gpio.h"
+#include "esp_log.h"
+#include "esp_err.h"
+#include "I2C_dev.h"
+#include "mpu6050.h"
