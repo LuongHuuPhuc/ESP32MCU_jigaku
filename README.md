@@ -119,7 +119,7 @@ Bạn cần:
    - Dễ push code lên remote repo riêng của bạn
    - Vẫn có thể cập nhật và update những thay đổi mới từ repo chính chủ
  
-  Cách 1: Fork Repo gốc từ chính chủ
+## Cách 1: Fork Repo gốc từ chính chủ ##
 👉Làm như sau:
 * Bước 1: Lên GitHub, vào repo người khác -> bấm fork để tạo bản sao về gitHub của bạn. Repo fork này hoàn toàn thuộc quyền của bạn, commit tự do
 * Bước 2: Clone repo đã fork đó về máy bạn (thành local repo)
@@ -151,7 +151,7 @@ Bạn cần:
   git push origin main
   ``` 
 
-Cách 2: Tạo 1 repo rỗng (khi này repo của bạn trên gitHub sẽ không có chữ `forked`) - thủ công 
+## Cách 2: Tạo 1 repo rỗng (khi này repo của bạn trên gitHub sẽ không có chữ `forked`) - thủ công ##
 👉Làm như sau:
  * Bước 1: Tạo 1 remote repo để chứa thư viện bạn cần fork trên gitHub (repo rỗng)
  * Bước 2: Chuyển `url` submodule của repo chính chủ mà bạn đã `git submodule add` từ đầu sang link repo mà bạn vừa tạo.
