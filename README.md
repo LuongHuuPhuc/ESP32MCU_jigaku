@@ -1,5 +1,5 @@
 # **Lập trình vi điều khiển ESP32 với framework ESP-IDF** #
-## Esp32 Dev Board Datasheet ##
+## ESP32 Dev Board Datasheet ##
 ![image](https://github.com/user-attachments/assets/78d933e0-ab94-4725-8c80-3256b728e818)
 ## **Cài đặt phần mềm** ##
 * Download phiên bản mới nhất của Espressif qua gitHub (cho Windows)"
