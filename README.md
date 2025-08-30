@@ -237,7 +237,9 @@ git commit
 ```bash
 git push origin master/main
 ```
-
+### ⚠ Lưu ý ###
+ Trong trường hợp bạn repo thư viện đó là repo con của 1 repo cha khác, để thay đổi bắt buộc bạn phải `cd` đến folder chứa repo submodule đó để thực hiện các thao tác như `fetch`, `merge`, `pull`,...hoàn chỉnh rồi sau đó mới `cd..` ngược về repo cha để `git add` những thay đổi ở repo con đó, sau đó mới `push` lên repo remote trên gitHub vì repo con (submodule) đó vẫn là 1 repo độc lập !
+ 
 😅 Nhược điểm:
   * Phức tạp hơn `git clone`
   * Phải nhớ từng bước sync/fetch riêng
