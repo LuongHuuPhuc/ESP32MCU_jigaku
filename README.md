@@ -41,10 +41,16 @@
 1. Sử dụng Git Submodule (Recommend)
    - Nếu thư viện bạn muốn thêm vào có sẵn trên Github hoặc một repo Git khác, các bạn có thể sử dụng Git Submodule để tự động tải thư viện vào dự án của mình
    - Các bước:
-    * Thêm Submodule vào dự án của bạn: `git submodule add <URL của repo Git> components/ten_thu_vien`
-      >ví dụ, bạn muốn thêm thư viện ssd1306 từ gitHub, bạn sẽ làm như sau:
+    * Thêm Submodule vào dự án của bạn:
+      ``` bash
+      git submodule add <URL của repo Git> components/ten_thu_vien`
+      ```
+      > ví dụ, bạn muốn thêm thư viện ssd1306 từ gitHub, bạn sẽ làm như sau:
       `git submodule add https://github.com/ThingPulse/esp8266-oled-ssd1306.git components/ssd1306`
-    * Cập nhật submodule sau khi clone dự án: `git submodule update --init --recursive`
+    * Cập nhật submodule sau khi clone dự án:
+      ``` bash
+      git submodule update --init --recursive`
+      ```
    - Cấu hình lại **CMakeLists.txt** (nếu cần thiết): Nếu thư viện không tự động thêm vào đúng chỗ, bạn sẽ cần cấu hình lại **CMakeLists.txt** của dự án để tham chiếu thư viện
      > Lưu ý là nên tạo 1 folder `**components**` riêng bên trong dự án của bạn chứ không nên tạo vào folder `**components**` thư viện chuẩn của esp-idf. Bởi vì:
      > - Cập nhật Esp-idf có thể ghi đè lên thư mục hoặc làm xung đột với thư viện bạn thêm vào.
