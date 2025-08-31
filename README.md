@@ -37,6 +37,7 @@
 * Dùng lệnh `idf.py erase_flash`
 * Quá trình này sẽ xóa sạch toàn bộ bộ nhớ flash, bao gồm bootloader, firmware, và các phần dữ liệu khác.
 ***
+
 ## *Cách để thêm thư viện ngoài (external) vào esp-idf* ##
 1. Sử dụng Git Submodule (Recommend)
 - Nếu thư viện bạn muốn thêm vào có sẵn trên Github hoặc một repo Git khác, các bạn có thể sử dụng Git Submodule để tự động tải thư viện vào dự án của mình
@@ -131,7 +132,7 @@ Bạn cần:
    - Dễ push code lên remote repo riêng của bạn
    - Vẫn có thể cập nhật và update những thay đổi mới từ repo chính chủ
  
-## Cách 1: Fork Repo gốc từ chính chủ ##
+### Cách 1: Fork Repo gốc từ chính chủ ###
 👉Làm như sau:
 * Bước 1: Lên GitHub, vào repo người khác -> bấm fork để tạo bản sao về gitHub của bạn. Repo fork này hoàn toàn thuộc quyền của bạn, commit tự do
 * Bước 2: Clone repo đã fork đó về máy bạn (thành local repo)
@@ -163,7 +164,7 @@ Bạn cần:
   git push origin main
   ``` 
 
-## Cách 2: Tạo 1 repo rỗng (khi này repo của bạn trên gitHub sẽ không có chữ `forked`) - thủ công ##
+### Cách 2: Tạo 1 repo rỗng (khi này repo của bạn trên gitHub sẽ không có chữ `forked`) - thủ công ###
 👉Làm như sau:
  * Bước 1: Tạo 1 remote repo để chứa thư viện bạn cần fork trên gitHub (repo rỗng)
  * Bước 2: Chuyển `url` submodule của repo chính chủ mà bạn đã `git submodule add` từ đầu sang link repo mà bạn vừa tạo.
@@ -279,6 +280,7 @@ TenSubmodule @ commit Hash
   ***
   ### Cách loại bỏ folder `build` khi up lên gitHub ###
   Folder `build` được tạo ra trong qua trình biên dịch dự án Esp-idf, đây là thư mục tạm, chứa tất cả các file và dữ liệu cần thiết để biên dịch, liên kết và tạo firmware cuối cùng.
+  
 #### Nội dung chính của thư mục `build` ####
 1. File nhị phân (Binary)
    * `firmware.bin` hoặc `project_name.bin`: File firmware cuối cùng để nạp vào Esp32
