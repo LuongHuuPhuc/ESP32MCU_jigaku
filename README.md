@@ -8,6 +8,7 @@
   ![image](https://github.com/user-attachments/assets/81a37dcb-e5cb-4623-b240-5a10183e09de)
 > Tốt nhất khi cài đặt hãy tạo riêng 1 folder cho phần mềm để đễ dàng kiểm soát
   Trong framework tải về nhà phát hành đã có sẵn những project nhỏ bên trong để chúng ta thực hành
+
 ## **Thực hiện cấu hình và build project blink đầu tiên** ##
 1. Vào trong folder của Esp32 đã cài đặt -> vào thư mục framworks -> `esp-idf` -> `examples` -> `get started`
 2. Copy và Paste chương trình `blink` bên trong ra ngoài song song với folder chính của Esp32:
@@ -40,15 +41,17 @@
 
 ## *Cách để thêm thư viện ngoài (external) vào esp-idf* ##
 1. Sử dụng Git Submodule (Recommend)
-- Nếu thư viện bạn muốn thêm vào có sẵn trên Github hoặc một repo Git khác, các bạn có thể sử dụng Git Submodule để tự động tải thư viện vào dự án của mình
+- Nếu thư viện bạn muốn thêm vào có sẵn trên Github hoặc một repo Git của người khác, các bạn có thể sử dụng Git Submodule để tự động tải thư viện vào dự án của mình
 - Các bước:
     * Thêm Submodule vào dự án của bạn:
+      - Lệnh này sẽ tạo ra file `.gitmodules` đồng thời tự động clone repo con từ url 
       ``` bash
       git submodule add <URL của repo Git> components/ten_thu_vien`
       ```
       > ví dụ, bạn muốn thêm thư viện ssd1306 từ gitHub, bạn sẽ làm như sau:
       `git submodule add https://github.com/ThingPulse/esp8266-oled-ssd1306.git components/ssd1306`
     * Cập nhật submodule sau khi clone dự án:
+      - Dùng để đồng bộ với những thay đổi commit trong repo của người khác với con trỏ hiện tại trong repo của bạn. 
       ``` bash
       git submodule update --init --recursive`
       ```
@@ -95,7 +98,7 @@ lib_deps =
    ```bash
    git submodule add <repo_url> <path>
    ```
-   Lệnh này sẽ clone repo vào thư mục bạn chỉ định, ghi link vào `.gitmodules`
+   Lệnh này sẽ tự động clone repo vào thư mục bạn chỉ định, ghi link vào `.gitmodules`
    > ví dụ: `git submodule add https://github.com/lexus2k/ssd1306 components/SSD1306`
 2. **Cập nhật submodule**
      ```bash
