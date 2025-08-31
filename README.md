@@ -50,7 +50,7 @@
       ```
       > ví dụ, bạn muốn thêm thư viện ssd1306 từ gitHub, bạn sẽ làm như sau:
       `git submodule add https://github.com/ThingPulse/esp8266-oled-ssd1306.git components/ssd1306`
-    * Cập nhật submodule sau khi clone dự án:
+    * Cập nhật submodule sau khi clone dự án (nếu submodule có thay đổi):
       - Dùng để đồng bộ với những thay đổi commit trong repo của người khác với con trỏ hiện tại trong repo của bạn. 
       ``` bash
       git submodule update --init --recursive`
