@@ -70,21 +70,6 @@
      > `idf.py add -dependency <URL của thư viện>`
    Lệnh trên sẽ tự động tải về và cấu hình thư viện theo cách tương tự như cách bạn thêm submodule trong Git.
 
-### 3. Sử dụng platformIO (dùng Visual Code Studio) ###
-   - PlatformIO là một công cụ mạnh mẽ để phát triển với Esp-idf và hỗ trựo dễ dàng việc thêm thư viện ngoài dự án
-   - Các bước:
-     * Tạo hoặc mở dự án esp-idf trong platformIo
-     * Thêm thư viện vào `platformio.ini`
-     Mở file `platformio.ini` và thêm thư viện vào mục `lib_deps`:
-```
-[env:esp32]
-platform = espressif32
-framework = espidf
-lib_deps =
-    ThingPulse/SSD1306@^2.0.0
-```
-   * Build lại dự án: `platform run`. PlatformIO sẽ tự động tải và thêm thư viện vào dự án của bạn
-
  ***
   ### *Xóa Submodule ra khỏi dự án của bạn* ###
   - Quá trình xóa Submodule cần xóa dữ liệu ở nhiều nơi, bao gồm:
@@ -137,7 +122,7 @@ Bạn cần:
    - Dễ push code lên remote repo riêng của bạn
    - Vẫn có thể cập nhật và update những thay đổi mới từ repo chính chủ
  
-### Cách 1: Fork Repo gốc từ chính chủ ###
+### Cách 1: Fork Repo gốc từ chính chủ (Không dùng submodule) ###
 👉Làm như sau:
 * Bước 1: Lên GitHub, vào repo người khác -> bấm fork để tạo bản sao về gitHub của bạn. Repo fork này hoàn toàn thuộc quyền của bạn, commit tự do
 * Bước 2: Clone repo đã fork đó về máy bạn (thành local repo)
