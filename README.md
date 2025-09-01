@@ -40,7 +40,7 @@
 ***
 
 ## *Cách để thêm thư viện ngoài (external) vào esp-idf* ##
-1. Sử dụng Git Submodule (Recommend)
+### 1. Sử dụng Git Submodule (Recommend) ###
 - Nếu thư viện bạn muốn thêm vào có sẵn trên Github hoặc một repo Git của người khác, các bạn có thể sử dụng Git Submodule để tự động tải thư viện vào dự án của mình
 - Các bước:
     * Thêm Submodule vào dự án của bạn:
@@ -59,7 +59,7 @@
      > Lưu ý là nên tạo 1 folder `**components**` riêng bên trong dự án của bạn chứ không nên tạo vào folder `**components**` thư viện chuẩn của esp-idf. Bởi vì:
      > - Cập nhật Esp-idf có thể ghi đè lên thư mục hoặc làm xung đột với thư viện bạn thêm vào.
      > - Giúp tách biệt mã nguồn của esp-idf với các thư viện bên ngoài, và giúp bạn dễ dàng quản lý.
-2. Sử dụng `idf.py` với `components`
+### 2. Sử dụng `idf.py` với `components` ###
    - Esp-idf có một cơ chế đơn giản để tự động tải thư viện ngoài bằng cách sử dụng `idf.py` kết hợp với hệ thống quản lý component của esp-idf
    - Các bước:
      * Tạo một thư mục con trong `components` (nếu thư viện không có sẵn trong esp-idf, bạn có thể tải về thư viện của mình vào thư mục `components`)
@@ -68,7 +68,7 @@
      > `idf.py add -dependency <URL của thư viện>`
    Lệnh trên sẽ tự động tải về và cấu hình thư viện theo cách tương tự như cách bạn thêm submodule trong Git.
 
-3. Sử dụng platformIO (dùng Visual Code Studio)
+### 3. Sử dụng platformIO (dùng Visual Code Studio) ###
    - PlatformIO là một công cụ mạnh mẽ để phát triển với Esp-idf và hỗ trựo dễ dàng việc thêm thư viện ngoài dự án
    - Các bước:
      * Tạo hoặc mở dự án esp-idf trong platformIo
@@ -94,14 +94,14 @@ lib_deps =
 
 ## **Cách làm việc với `git submodule`** ##
 `git submodule` là lệnh giúp bạn nhúng một repo Git bên trong một repo khác. Điều này rất hữu ích khi bạn muốn sử dụng thư viện bên ngoài (ví dụ như driver hay SDK,...) nhưng vẫn giữ liên kết với nguồn gốc của thư viện đó (repo chính chủ ) <br>
-1. **Thêm submodule**
+### 1. **Thêm submodule** ###
    ```bash
    git submodule add <repo_url> <path>
    ```
    Lệnh này sẽ tự động clone repo vào thư mục bạn chỉ định, ghi link vào `.gitmodules`
    > ví dụ: `git submodule add https://github.com/lexus2k/ssd1306 components/SSD1306`
-2. **Cập nhật submodule**
-     ```bash
+### 2. **Cập nhật submodule** ###
+   ```bash
    git submodule update --init --recursive 
    ```
    > `--init`: Init nếu submodule chưa được clone <br>
@@ -112,7 +112,7 @@ lib_deps =
    - Nó không tự động `fetch` commit mới nhất từ remote của repo con submodule mà chỉ `checkout` đúng commit đã được ghi nhận.
    - Đơn giản: Repo con (submodule) khi thay đổi -> Sinh ra commit hash mới -> repo cha muốn đồng bộ thì cần phải update con trỏ để trỏ đến đúng commit mới nhât của repo bằng lệnh trên !
 
-4. **Cập nhật submodule từ chính chủ (upstream)** <br>
+### 3. **Cập nhật submodule từ chính chủ (upstream)** ###
 Bạn cần:
  - Thêm remote `upstream` vào bên trong submodule:
    ```bash
@@ -129,7 +129,7 @@ Bạn cần:
   # hoặc
   git rebase upstream/master
   ```
-4. **Tùy chỉnh submodule để sửa đổi** <br>
+### 4. **Tùy chỉnh submodule để sửa đổi** <br> ###
    Nếu bạn muốn lưu submodule về máy của hay local repo của bạn để:
    - Có thể sửa mã mà không ảnh hưởng đến repo chính chủ
    - Dễ push code lên remote repo riêng của bạn
