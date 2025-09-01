@@ -10,37 +10,39 @@
   Trong framework tải về nhà phát hành đã có sẵn những project nhỏ bên trong để chúng ta thực hành
 
 ## **Thực hiện cấu hình và build project blink đầu tiên** ##
-1. Vào trong folder của Esp32 đã cài đặt -> vào thư mục framworks -> `esp-idf` -> `examples` -> `get started`
-2. Copy và Paste chương trình `blink` bên trong ra ngoài song song với folder chính của Esp32:
+* Vào trong folder của Esp32 đã cài đặt -> vào thư mục framworks -> `esp-idf` -> `examples` -> `get started`
+* Copy và Paste chương trình `blink` bên trong ra ngoài song song với folder chính của Esp32:
    ![image](https://github.com/user-attachments/assets/1e24fe1c-2282-41a1-b7f6-aedcffd56039)
-3. Mở command prompt của Esp32, sau đó cd vào folder blink (chúng ta có thể dùng Visual Studio Code hoặc bất cứ trình editor code nào để mở tất cả các file code trong folder này lên), ngoài ra nếu muốn quay lại folder cũ thì gõ `cd..`
-4. Vào lại command prompt và gõ `ls` để xem toàn bộ danh sách file có trong thư mục blink
-5. Tiếp theo dùng lệnh `idf.py menuconfig` để chạy giao điện cấu hình cho Esp32
+*  Mở command prompt của Esp32, sau đó cd vào folder blink (chúng ta có thể dùng Visual Studio Code hoặc bất cứ trình editor code nào để mở tất cả các file code trong folder này lên), ngoài ra nếu muốn quay lại folder cũ thì gõ `cd..`
+*  Vào lại command prompt và gõ `ls` để xem toàn bộ danh sách file có trong thư mục blink
+*  Tiếp theo dùng lệnh `idf.py menuconfig` để chạy giao điện cấu hình cho Esp32
 > idf.py: Đây là một công cụ dòng lệnh giúp quản lý toàn bộ quá trình phát triển, từ khởi tạo dự án, cấu hình, biên dịch, flash mã, đến theo dõi nhật ký từ ESP32.
-6. Sau khi chạy xong toàn bộ, màn hình command sẽ hiển thị giao diện như sau: 
+* Sau khi chạy xong toàn bộ, màn hình command sẽ hiển thị giao diện như sau: 
 ![image](https://github.com/user-attachments/assets/840fe240-b7dc-4f69-b536-853400eaa8e4)
-7. Trong mục "Serial flasher config", chỉnh "flash size" thành 4MB. Trong "Example configuration" chuyển chân Blink GPIO thành chân 2 (lý do vì trong bản diagram của Esp32 được thiết lập sẵn chân 2 là chân led blink)
-8. Sau đó thoát giao diện config bằng nút "esc" trong bàn phím
-9. Sau đó dùng lệnh `idf.py build` để thực hiện build dự án blink
+* Trong mục "Serial flasher config", chỉnh "flash size" thành 4MB. Trong "Example configuration" chuyển chân Blink GPIO thành chân 2 (lý do vì trong bản diagram của Esp32 được thiết lập sẵn chân 2 là chân led blink)
+*  Sau đó thoát giao diện config bằng nút "esc" trong bàn phím
+*  au đó dùng lệnh `idf.py build` để thực hiện build dự án blink
 > Bản chất viêc idf.py build trên command của Esp32 là máy sẽ chạy "Makefile" bên trong folder blink
 ![image](https://github.com/user-attachments/assets/0fb86ab0-1f1b-42ce-b797-72e2b0049cf2)
 > Ảnh trên cho thấy, nó build ra các file bootloader.bin, partition_table.bin, blink.bin(đây chính là cái app của chúng ta). Những cái vùng flash 0x1000,... như chúng ta thấy bên trên là các vùng bộ nhớ mà các file được nạp vào.
-10. Bước quan trọng nhất để nạp chương trình vào vi điều khiển là dùng lệnh `idf.py -p COM(SỐ..)flash monitor `, chương trình sẽ ngay lập tức nạp vào bộ nhớ flash của mcu, vừa nạp vừa giữ nút Boot trên vi điều khiển:
+* Bước quan trọng nhất để nạp chương trình vào vi điều khiển là dùng lệnh `idf.py -p COM(SỐ..)flash monitor `, chương trình sẽ ngay lập tức nạp vào bộ nhớ flash của mcu, vừa nạp vừa giữ nút Boot trên vi điều khiển:
 ![image](https://github.com/user-attachments/assets/1bc6a018-3c25-4228-93d7-d2be24d1e4b6)
 * Sau khi màn hình hiển thị ra dòng như sau:
   ![image](https://github.com/user-attachments/assets/bb562041-4b73-4902-a94a-514e729c436a)
+  
 ### Như vậy là đèn đã blink thành công ###
 * Để thoát chương trình trên command, ta dùng tổ hợp phím "Ctrl + }" để thoát
 ### **Xóa các file đã build trong quá trình biên dịch trước đó** ###
 * Dùng lệnh `idf.py fullclean`
 * Khi đó terminal sẽ ra lệnh xóa toàn bộ dữ liệu cũ và đưa dự án về trạng thái ban đầu
+
 ### **Đưa Esp32 về trạng thái ban đầu khi chưa nạp code** ###
 * Dùng lệnh `idf.py erase_flash`
 * Quá trình này sẽ xóa sạch toàn bộ bộ nhớ flash, bao gồm bootloader, firmware, và các phần dữ liệu khác.
 ***
 
 ## *Cách để thêm thư viện ngoài (external) vào esp-idf* ##
-1. Sử dụng Git Submodule (Recommend)
+### 1. Sử dụng Git Submodule (Recommend) ###
 - Nếu thư viện bạn muốn thêm vào có sẵn trên Github hoặc một repo Git của người khác, các bạn có thể sử dụng Git Submodule để tự động tải thư viện vào dự án của mình
 - Các bước:
     * Thêm Submodule vào dự án của bạn:
@@ -59,7 +61,7 @@
      > Lưu ý là nên tạo 1 folder `**components**` riêng bên trong dự án của bạn chứ không nên tạo vào folder `**components**` thư viện chuẩn của esp-idf. Bởi vì:
      > - Cập nhật Esp-idf có thể ghi đè lên thư mục hoặc làm xung đột với thư viện bạn thêm vào.
      > - Giúp tách biệt mã nguồn của esp-idf với các thư viện bên ngoài, và giúp bạn dễ dàng quản lý.
-2. Sử dụng `idf.py` với `components`
+### 2. Sử dụng `idf.py` với `components` ###
    - Esp-idf có một cơ chế đơn giản để tự động tải thư viện ngoài bằng cách sử dụng `idf.py` kết hợp với hệ thống quản lý component của esp-idf
    - Các bước:
      * Tạo một thư mục con trong `components` (nếu thư viện không có sẵn trong esp-idf, bạn có thể tải về thư viện của mình vào thư mục `components`)
@@ -68,7 +70,7 @@
      > `idf.py add -dependency <URL của thư viện>`
    Lệnh trên sẽ tự động tải về và cấu hình thư viện theo cách tương tự như cách bạn thêm submodule trong Git.
 
-3. Sử dụng platformIO (dùng Visual Code Studio)
+### 3. Sử dụng platformIO (dùng Visual Code Studio) ###
    - PlatformIO là một công cụ mạnh mẽ để phát triển với Esp-idf và hỗ trựo dễ dàng việc thêm thư viện ngoài dự án
    - Các bước:
      * Tạo hoặc mở dự án esp-idf trong platformIo
@@ -94,14 +96,14 @@ lib_deps =
 
 ## **Cách làm việc với `git submodule`** ##
 `git submodule` là lệnh giúp bạn nhúng một repo Git bên trong một repo khác. Điều này rất hữu ích khi bạn muốn sử dụng thư viện bên ngoài (ví dụ như driver hay SDK,...) nhưng vẫn giữ liên kết với nguồn gốc của thư viện đó (repo chính chủ ) <br>
-1. **Thêm submodule**
+### 1. **Thêm submodule** ###
    ```bash
    git submodule add <repo_url> <path>
    ```
    Lệnh này sẽ tự động clone repo vào thư mục bạn chỉ định, ghi link vào `.gitmodules`
    > ví dụ: `git submodule add https://github.com/lexus2k/ssd1306 components/SSD1306`
-2. **Cập nhật submodule**
-     ```bash
+### 2. **Cập nhật submodule** ###
+   ```bash
    git submodule update --init --recursive 
    ```
    > `--init`: Init nếu submodule chưa được clone <br>
@@ -112,7 +114,7 @@ lib_deps =
    - Nó không tự động `fetch` commit mới nhất từ remote của repo con submodule mà chỉ `checkout` đúng commit đã được ghi nhận.
    - Đơn giản: Repo con (submodule) khi thay đổi -> Sinh ra commit hash mới -> repo cha muốn đồng bộ thì cần phải update con trỏ để trỏ đến đúng commit mới nhât của repo bằng lệnh trên !
 
-4. **Cập nhật submodule từ chính chủ (upstream)** <br>
+### 3. **Cập nhật submodule từ chính chủ (upstream)** ###
 Bạn cần:
  - Thêm remote `upstream` vào bên trong submodule:
    ```bash
@@ -129,7 +131,7 @@ Bạn cần:
   # hoặc
   git rebase upstream/master
   ```
-4. **Tùy chỉnh submodule để sửa đổi** <br>
+### 4. **Tùy chỉnh submodule để sửa đổi** <br> ###
    Nếu bạn muốn lưu submodule về máy của hay local repo của bạn để:
    - Có thể sửa mã mà không ảnh hưởng đến repo chính chủ
    - Dễ push code lên remote repo riêng của bạn
@@ -170,15 +172,17 @@ Bạn cần:
 ### Cách 2: Tạo 1 repo rỗng (khi này repo của bạn trên gitHub sẽ không có chữ `forked`) - thủ công ###
 👉Làm như sau:
  * Bước 1: Tạo 1 remote repo để chứa thư viện bạn cần fork trên gitHub (repo rỗng)
- * Bước 2: Chuyển `url` submodule của repo chính chủ mà bạn đã `git submodule add` từ đầu sang link repo mà bạn vừa tạo.
+ * Bước 2: Thêm repo gốc đó thành submodule: 
+   ```bash
+   git submodule add <repo_url> <path>
+   ```
+   ✅ Khi đó, `git clone` về sẽ tự động tải repo gốc đó về vị trí `<path>` trong máy của bạn, đồng thời tạo file `.gitmodules`
+ * Bước 3: Chuyển `url` submodule trong file `.gitmodules` của repo chính chủ mà bạn đã `git submodule add` từ đầu sang link repo mà bạn vừa tạo.
    ```bash
    git config -f .gitmodules submodule.<path/to/your/library>.url + <link repo của bạn>
    git submodule sync #Dùng để đồng bộ URL sau khi sửa file .gitmodules
-   ```
-   ✅ Khi đó, `git clone` về sẽ lấy từ repo của bạn thay vì repo chính chủ
-   
-   - Với repo thường mà không phải là submodule thì chỉ cần `git clone` về máy như bình thường là được 
-* Bước 3: Khi này folder chứa repo mà bạn submodule vẫn đang liên kết `remote` với repo chính chủ, thế nên bạn cần thay đổi nó với link repo chứa thư viện bạn cần fork mà bạn đã tạo lúc nãy.
+   ```   
+* Bước 4: Khi này folder chứa repo submodule mà bạn vừa tải về vẫn đang liên kết `remote` với repo chính chủ, thế nên bạn cần thay đổi nó với link repo chứa thư viện bạn cần fork mà bạn đã tạo lúc nãy.
   ```bash
   git remote set-url origin + <link repo của bạn> # Lúc này origin sẽ lấy bạn làm mặc định
   ```
@@ -187,7 +191,7 @@ Bạn cần:
   git remote add upstream + <path repo chính chủ> #Thay vì origin thì đặt là upstream để làm tên cho repo chính chủ khi cần pull về 
   ```
   Việc làm trên sẽ giúp bạn vừa có thể thay đổi mã trong repo bản sao của chính chủ ở local ở repo riêng biệt của bạn và vừa có thể cập nhật những update mới từ repo của chính chủ.
-* Bước 4: Sau khi làm xong những bước trên thì bạn chỉ cần dùng lệnh `pull` để đẩy bản sao của repo chính chủ lên repo mà bạn đã tạo trước đó. Và những thay đổi mà bạn làm cho repo đó (như sửa code,..) thì đều không ảnh hưởng đến repo chính chủ.
+* Bước 5: Sau khi làm xong những bước trên thì bạn chỉ cần dùng lệnh `pull` để đẩy bản sao của repo chính chủ lên repo mà bạn đã tạo trước đó. Và những thay đổi mà bạn làm cho repo đó (như sửa code,..) thì đều không ảnh hưởng đến repo chính chủ.
   ``` bash
   git push origin main/master`
   ```
