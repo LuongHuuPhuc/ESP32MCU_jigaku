@@ -3,7 +3,7 @@
 	url = https://github.com/LuongHuuPhuc/VL53L0X_idf
 [submodule "components/MAX30100"]
 	path = components/MAX30100
-	url = https://github.com/aedalzotto/esp32-max30100
+	url = https://github.com/LuongHuuPhuc/MAX30100_idf
 [submodule "components/SSD1306"]
 	path = components/SSD1306
 	url = https://github.com/LuongHuuPhuc/SSD1306_idf
