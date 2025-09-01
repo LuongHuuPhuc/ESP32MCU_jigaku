@@ -170,15 +170,17 @@ Bạn cần:
 ### Cách 2: Tạo 1 repo rỗng (khi này repo của bạn trên gitHub sẽ không có chữ `forked`) - thủ công ###
 👉Làm như sau:
  * Bước 1: Tạo 1 remote repo để chứa thư viện bạn cần fork trên gitHub (repo rỗng)
- * Bước 2: Chuyển `url` submodule của repo chính chủ mà bạn đã `git submodule add` từ đầu sang link repo mà bạn vừa tạo.
+ * Bước 2: Thêm repo gốc đó thành submodule: 
+   ```bash
+   git submodule add <repo_url> <path>
+   ```
+   ✅ Khi đó, `git clone` về sẽ tự động tải repo gốc đó về vị trí `<path>` trong máy của bạn, đồng thời tạo file `.gitmodules`
+ * Bước 3: Chuyển `url` submodule của repo chính chủ mà bạn đã `git submodule add` từ đầu sang link repo mà bạn vừa tạo.
    ```bash
    git config -f .gitmodules submodule.<path/to/your/library>.url + <link repo của bạn>
    git submodule sync #Dùng để đồng bộ URL sau khi sửa file .gitmodules
-   ```
-   ✅ Khi đó, `git clone` về sẽ lấy từ repo của bạn thay vì repo chính chủ
-   
-   - Với repo thường mà không phải là submodule thì chỉ cần `git clone` về máy như bình thường là được 
-* Bước 3: Khi này folder chứa repo mà bạn submodule vẫn đang liên kết `remote` với repo chính chủ, thế nên bạn cần thay đổi nó với link repo chứa thư viện bạn cần fork mà bạn đã tạo lúc nãy.
+   ```   
+* Bước 4: Khi này folder chứa repo submodule mà bạn vừa tải về vẫn đang liên kết `remote` với repo chính chủ, thế nên bạn cần thay đổi nó với link repo chứa thư viện bạn cần fork mà bạn đã tạo lúc nãy.
   ```bash
   git remote set-url origin + <link repo của bạn> # Lúc này origin sẽ lấy bạn làm mặc định
   ```
@@ -187,7 +189,7 @@ Bạn cần:
   git remote add upstream + <path repo chính chủ> #Thay vì origin thì đặt là upstream để làm tên cho repo chính chủ khi cần pull về 
   ```
   Việc làm trên sẽ giúp bạn vừa có thể thay đổi mã trong repo bản sao của chính chủ ở local ở repo riêng biệt của bạn và vừa có thể cập nhật những update mới từ repo của chính chủ.
-* Bước 4: Sau khi làm xong những bước trên thì bạn chỉ cần dùng lệnh `pull` để đẩy bản sao của repo chính chủ lên repo mà bạn đã tạo trước đó. Và những thay đổi mà bạn làm cho repo đó (như sửa code,..) thì đều không ảnh hưởng đến repo chính chủ.
+* Bước 5: Sau khi làm xong những bước trên thì bạn chỉ cần dùng lệnh `pull` để đẩy bản sao của repo chính chủ lên repo mà bạn đã tạo trước đó. Và những thay đổi mà bạn làm cho repo đó (như sửa code,..) thì đều không ảnh hưởng đến repo chính chủ.
   ``` bash
   git push origin main/master`
   ```
