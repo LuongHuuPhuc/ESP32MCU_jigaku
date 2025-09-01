@@ -175,7 +175,7 @@ Bạn cần:
    git submodule add <repo_url> <path>
    ```
    ✅ Khi đó, `git clone` về sẽ tự động tải repo gốc đó về vị trí `<path>` trong máy của bạn, đồng thời tạo file `.gitmodules`
- * Bước 3: Chuyển `url` submodule của repo chính chủ mà bạn đã `git submodule add` từ đầu sang link repo mà bạn vừa tạo.
+ * Bước 3: Chuyển `url` submodule trong file `.gitmodules` của repo chính chủ mà bạn đã `git submodule add` từ đầu sang link repo mà bạn vừa tạo.
    ```bash
    git config -f .gitmodules submodule.<path/to/your/library>.url + <link repo của bạn>
    git submodule sync #Dùng để đồng bộ URL sau khi sửa file .gitmodules
