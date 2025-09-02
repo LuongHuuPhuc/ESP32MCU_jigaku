@@ -158,7 +158,7 @@ Bạn cần:
   git push origin main
   ``` 
 
-### Cách 2: Tạo 1 repo rỗng (khi này repo của bạn trên gitHub sẽ không có chữ `forked`) - thủ công ###
+### Cách 2: Tạo 1 repo rỗng & sử dụng Submodule - thủ công ###
 👉Làm như sau:
  * Bước 1: Tạo 1 remote repo để chứa thư viện bạn cần fork trên gitHub (repo rỗng)
  * Bước 2: Thêm repo gốc đó thành submodule: 
@@ -180,7 +180,7 @@ Bạn cần:
   git remote add upstream + <path repo chính chủ> #Thay vì origin thì đặt là upstream để làm tên cho repo chính chủ khi cần pull về 
   ```
   Việc làm trên sẽ giúp bạn vừa có thể thay đổi mã trong repo bản sao của chính chủ ở local ở repo riêng biệt của bạn và vừa có thể cập nhật những update mới từ repo của chính chủ.
-* Bước 5: Sau khi làm xong những bước trên thì bạn chỉ cần dùng lệnh `pull` để đẩy bản sao của repo chính chủ lên repo mà bạn đã tạo trước đó. Và những thay đổi mà bạn làm cho repo đó (như sửa code,..) thì đều không ảnh hưởng đến repo chính chủ.
+* Bước 5: Sau khi làm xong những bước trên thì bạn chỉ cần dùng lệnh `push` để đẩy bản sao của repo chính chủ lên repo mà bạn đã tạo trước đó. Và những thay đổi mà bạn làm cho repo đó (như sửa code,..) thì đều không ảnh hưởng đến repo chính chủ.
   ``` bash
   git push origin main/master`
   ```
