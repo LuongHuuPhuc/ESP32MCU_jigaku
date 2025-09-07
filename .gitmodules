@@ -7,3 +7,6 @@
 [submodule "components/SSD1306"]
 	path = components/SSD1306
 	url = https://github.com/LuongHuuPhuc/SSD1306_idf
+[submodule "components/MPU6050"]
+	path = components/MPU6050
+	url = https://github.com/LuongHuuPhuc/MPU6050_idf
