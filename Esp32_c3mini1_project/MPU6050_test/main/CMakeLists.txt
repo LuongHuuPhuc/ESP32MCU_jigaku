@@ -3,7 +3,9 @@
 # PRIV_REQUIRES: Khai bao rang dependency la rieng tu, chi phuc vu noi bo 
 # // component cua ban phu thuoc vao component kia, nhung dependency nay khong duoc lan truyen ra ngoai
 
-set(req driver timer freertos I2C_dev)
+set(req driver esp_timer freertos I2C_dev)
+set(priv MPU6050_lib)
 idf_component_register(SRCS "main.c"
                        INCLUDE_DIRS "."
-                       REQUIRES ${req})
+                       REQUIRES ${req}
+                       PRIV_REQUIRES ${priv})
