@@ -26,7 +26,7 @@ esp_err_t Kalman_init(Kalman_filter_t *kf, float Q_angle, float Q_bias, float R_
   kf->bias = 0.0f;
   kf->rate = 0.0f;
 
-  memset(kf->P, 0, sizeof(&kf->P));
+  memset(kf->Q, 0, sizeof(&kf->Q));
 
   kf->sensor_mode = SENSOR_ACCEL_GYRO;
   kf->state = KALMAN_STATE_READY;
@@ -39,24 +39,24 @@ float Kalman_Update(Kalman_filter_t *kf, float newAngle){
   float y = newAngle - kf->angle;
 
   //S sai so do
-  float S = kf->P[0][0] + kf->R_measure;
+  float S = kf->Q[0][0] + kf->R_measure;
 
   //K: He so Kalman
-  float K0 = kf->P[0][0] / S;
-  float K1 = kf->P[1][0] / S;
+  float K0 = kf->Q[0][0] / S;
+  float K1 = kf->Q[1][0] / S;
 
   //Cap nhat trang thai
   kf->angle += K0 * y;
   kf->bias += K1 * y;
 
   //Cap nhat ma tran hiep phuong sai 
-  float P00_temp = kf->P[0][0];
-  float P01_temp = kf->P[0][1];
+  float P00_temp = kf->Q[0][0];
+  float P01_temp = kf->Q[0][1];
 
-  kf->P[0][0] -= K0 * P00_temp;
-  kf->P[0][1] -= K0 * P01_temp;
-  kf->P[1][0] -= K1 * P00_temp;
-  kf->P[1][1] -= K1 * P01_temp;
+  kf->Q[0][0] -= K0 * P00_temp;
+  kf->Q[0][1] -= K0 * P01_temp;
+  kf->Q[1][0] -= K1 * P00_temp;
+  kf->Q[1][1] -= K1 * P01_temp;
 
   return kf->angle;
 }
@@ -67,10 +67,10 @@ void Kalman_Predict(Kalman_filter_t *kf, float newRate, float dt){
   kf->angle += dt * kf->rate;
 
   //Cap nhat phuong trinh ma tran hiep phuong sai
-  kf->P[0][0] += dt * (dt * kf->P[1][1] - kf->P[0][1] - kf->P[1][0] + kf->Q_angle);
-  kf->P[0][1] -= dt * kf->P[1][1];
-  kf->P[1][0] -= dt * kf->P[1][1];
-  kf->P[1][1] += kf->Q_bias * dt;
+  kf->Q[0][0] += dt * (dt * kf->Q[1][1] - kf->Q[0][1] - kf->Q[1][0] + kf->Q_angle);
+  kf->Q[0][1] -= dt * kf->Q[1][1];
+  kf->Q[1][0] -= dt * kf->Q[1][1];
+  kf->Q[1][1] += kf->Q_bias * dt;
   kf->state = KALMAN_STATE_RUNNING;
 }
 
@@ -86,7 +86,7 @@ esp_err_t Kalman_Reset(Kalman_filter_t *kf){
   kf->bias = 0.0f;
   kf->rate = 0.0f;
   kf->state = KALMAN_STATE_READY;
-  memset(kf->P, 0, sizeof(&kf->P));
+  memset(kf->Q, 0, sizeof(&kf->Q));
 
   return ESP_OK;
 }

@@ -19,6 +19,10 @@ extern "C" {
 #include "stdbool.h"
 #include "esp_err.h"
 
+#define Q_ANGLE_STD_PARAM     0.001f //Tham so bo loc dieu chinh muc do tin cay cua mo hinh dong hoc Gyro
+#define Q_BIAS_STD_PARAM      0.003f //Tham so bo loc dieu chinh muc do drift cua Gyro
+#define R_MEASURE_STD_PARAM   0.03f //Tham so bo loc dieu chinh do nhieu cua phep do Accel
+
 typedef enum {
   KALMAN_STATE_UNINITIALIZED = 0,
   KALMAN_STATE_READY,
@@ -36,7 +40,7 @@ typedef struct __Kalman_filter_t{
   float bias; //Uoc luong bias cua gyro
   float rate; //Toc do goc da loai bias
 
-  float P[2][2]; //Ma tran hiep phuong sai 2x2 (Do khong chac chan) 
+  float Q[2][2]; //Ma tran hiep phuong sai 2x2 (Do khong chac chan) 
 
   float Q_angle; //Nhieu qua trinh do goc (Neu Q_angle lon -> Bo loc tin vao Gyro, nguoc lai -> Bo loc tin vao Accel)
   float Q_bias; //Nhieu qua trinh cho bias cho Gyro
@@ -105,7 +109,7 @@ esp_err_t Kalman_Reset(Kalman_filter_t *kf);
 #endif // __INC_KALMAN_FT_H
 
 /** NOTE 
- * P[2][2]: Ma tran hiep phuong sai nhieu du doan 2x2 (Dung de quan ly do khong chac chan trong uoc luong cua Kalman)
+ * Q[2][2]: Ma tran hiep phuong sai nhieu du doan 2x2 (Dung de quan ly do khong chac chan trong uoc luong cua Kalman)
  * - P thay doi theo thoi gian, tang khi du doan (vi ta it chac chan hon) va giam khi cap nhat voi do luong (vi ta them thong tin moi)
  * - No duoc update moi vong lap Kalman de can bang giua du doan va do luong
  * 
