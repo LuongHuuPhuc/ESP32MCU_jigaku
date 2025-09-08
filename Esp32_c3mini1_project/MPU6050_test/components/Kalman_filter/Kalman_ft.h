@@ -67,14 +67,15 @@ esp_err_t Kalman_init(Kalman_filter_t *kf, float Q_angle, float Q_bias, float R_
  * @brief Buoc cap nhat (update) Kalman filter voi goc do tu Accel
  * @note `newAngle` se duoc tinh toan de chuyen doi tu don vi `g` sang `deg` roi sau do moi duoc dua vao Kalman filter de xu ly
  * @param kf Con tro toi struct
- * @param newAngle Gia tri sau khi chuyen doi gia toc goc (g) do duoc tu Accelerometer sang don vi (deg) - goi la cac goc `Pithc-Roll-Yaww` cua Accel)
+ * @param newAngle Gia tri sau khi chuyen doi gia toc goc (g) do duoc tu Accelerometer sang don vi (deg) - goi la cac goc `Pithc-Roll-Yaw` cua Accel
  * @return Goc sau khi duoc uoc luong boi Kalman Filter
  */
 float Kalman_Update(Kalman_filter_t *kf, float newAngle);
 
 /**
  * @brief Buoc du doan (Predict) cua Kalman Filter voi toc do goc Gyro
- * @note - `newRate`(dps) duoc truyen vao se duoc loai bo drift va tich phan theo thoi gian `dt` de cap nhat goc uoc luong tu Gyro don vi la `deg` (la cac goc `Pitch-Roll-Yaw` cua Gyro)
+ * @note - Gia tri `newRate` truyen vao co don vi dps (degree/s) - Ham nay co nhiem vu chuyen doi Gyro tu dps -> degree
+ * \note - `newRate`(dps) duoc truyen vao se duoc loai bo drift va tich phan theo thoi gian `dt` de cap nhat goc uoc luong tu Gyro don vi la `deg` (la cac goc `Pitch-Roll-Yaw` cua Gyro)
  * \note - Don vi `newRate` sau khi duoc Predict la (deg/s)
  * 
  * @param kf Con tro toi struct
