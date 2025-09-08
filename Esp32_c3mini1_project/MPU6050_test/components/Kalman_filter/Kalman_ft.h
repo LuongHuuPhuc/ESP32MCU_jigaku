@@ -65,29 +65,32 @@ esp_err_t Kalman_init(Kalman_filter_t *kf, float Q_angle, float Q_bias, float R_
 
 /**
  * @brief Buoc cap nhat (update) Kalman filter voi goc do tu Accel
- * 
+ * @note `newAngle` se duoc tinh toan de chuyen doi tu don vi `g` sang `deg` roi sau do moi duoc dua vao Kalman filter de xu ly
  * @param kf Con tro toi struct
- * @param newAngle Goc do duoc tu Accelerometer
+ * @param newAngle Gia tri sau khi chuyen doi gia toc goc (g) do duoc tu Accelerometer sang don vi (deg) - goi la cac goc `Pithc-Roll-Yaww` cua Accel)
  * @return Goc sau khi duoc uoc luong boi Kalman Filter
  */
 float Kalman_Update(Kalman_filter_t *kf, float newAngle);
 
 /**
  * @brief Buoc du doan (Predict) cua Kalman Filter voi toc do goc Gyro
+ * @note - `newRate`(dps) duoc truyen vao se duoc loai bo drift va tich phan theo thoi gian `dt` de cap nhat goc uoc luong tu Gyro don vi la `deg` (la cac goc `Pitch-Roll-Yaw` cua Gyro)
+ * \note - Don vi `newRate` sau khi duoc Predict la (deg/s)
  * 
  * @param kf Con tro toi struct
- * @param newRate Toc do goc do duoc tu Gyro
+ * @param newRate Toc do goc do duoc tu Gyroscope (dps)
  * @param dt Khoang thoi gian lay mau (s)
  */
 void Kalman_Predict(Kalman_filter_t *kf, float newRate, float dt);
 
 /**
  * @brief Ham tich hop ca predict + update
- * \brief - Dung khi co ca du lieu Gyro (rate) va Accel (Angle)
+ * @note - Gia tri `newRate` tu Gyro se duoc xu ly ben trong bo loc Kalman de chuyen tu `dps` sang `deg`
+ * \note - Gia tri `newAngle` tuAccel duoc xu ly ben ngoai de chuyen doi tu `g` sang `deg`
  * 
  * @param kf Con tro toi struct
- * @param newAngle Goc do duoc tu Accelerometer
- * @param newRate Toc do goc do tu Gyro 
+ * @param newAngle Goc do duoc tu Accelerometer sau khi duoc chuyen doi tu gia toc goc `g` sang don vi `deg`
+ * @param newRate Toc do goc do tu Gyro (`dps`) chua bien doi thanh `deg`
  * @param dt Thoi gian lay mau (s)
  * @return Goc sau khi loc
  */

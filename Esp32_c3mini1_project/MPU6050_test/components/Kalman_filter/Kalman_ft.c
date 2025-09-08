@@ -64,7 +64,7 @@ float Kalman_Update(Kalman_filter_t *kf, float newAngle){
 void Kalman_Predict(Kalman_filter_t *kf, float newRate, float dt){
   //Buoc du doan
   kf->rate = newRate - kf->bias; //Toc do goc khi da tru di bias (troi) truoc khi tich phan
-  kf->angle += dt * kf->rate;
+  kf->angle += dt * kf->rate; //Tich phan toc do goc -> Tinh ra goc (pitch_gyro, roll_gyro hoac yaw_gyro)
 
   //Cap nhat phuong trinh ma tran hiep phuong sai
   kf->Q[0][0] += dt * (dt * kf->Q[1][1] - kf->Q[0][1] - kf->Q[1][0] + kf->Q_angle);
