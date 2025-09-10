@@ -26,7 +26,7 @@ esp_err_t Kalman_init(Kalman_filter_t *kf, float Q_angle, float Q_bias, float R_
   kf->bias = 0.0f;
   kf->rate = 0.0f;
 
-  memset(kf->Q, 0, sizeof(&kf->Q));
+  memset(kf->Q, 0, sizeof(kf->Q));
 
   kf->sensor_mode = SENSOR_ACCEL_GYRO;
   kf->state = KALMAN_STATE_READY;
@@ -86,7 +86,7 @@ esp_err_t Kalman_Reset(Kalman_filter_t *kf){
   kf->bias = 0.0f;
   kf->rate = 0.0f;
   kf->state = KALMAN_STATE_READY;
-  memset(kf->Q, 0, sizeof(&kf->Q));
+  memset(kf->Q, 0, sizeof(kf->Q));
 
   return ESP_OK;
 }

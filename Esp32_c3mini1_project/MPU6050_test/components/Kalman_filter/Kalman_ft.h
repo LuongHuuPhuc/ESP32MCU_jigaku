@@ -64,8 +64,10 @@ typedef struct __Kalman_filter_t{
 esp_err_t Kalman_init(Kalman_filter_t *kf, float Q_angle, float Q_bias, float R_measure);
 
 /**
- * @brief Buoc cap nhat (update) Kalman filter voi goc do tu Accel
- * @note `newAngle` se duoc tinh toan de chuyen doi tu don vi `g` sang `deg` roi sau do moi duoc dua vao Kalman filter de xu ly
+ * @brief Buoc cap nhat (Update) Kalman filter voi goc do tu Accel
+ * @note `newAngle` se duoc tinh toan ben ngoai de chuyen doi tu don vi `g` sang `deg` roi sau do moi duoc dua vao Kalman filter de xu ly
+ * \note - Sau khi thu duoc `Predict` tu Gyro (deg) thi ham nay se hieu chinh lai va loai bo `drift` de uoc tinh ra trang thai cuoi cung
+ * 
  * @param kf Con tro toi struct
  * @param newAngle Gia tri sau khi chuyen doi gia toc goc (g) do duoc tu Accelerometer sang don vi (deg) - goi la cac goc `Pithc-Roll-Yaw` cua Accel
  * @return Goc sau khi duoc uoc luong boi Kalman Filter
@@ -87,7 +89,8 @@ void Kalman_Predict(Kalman_filter_t *kf, float newRate, float dt);
 /**
  * @brief Ham tich hop ca predict + update
  * @note - Gia tri `newRate` tu Gyro se duoc xu ly ben trong bo loc Kalman de chuyen tu `dps` sang `deg`
- * \note - Gia tri `newAngle` tuAccel duoc xu ly ben ngoai de chuyen doi tu `g` sang `deg`
+ * \note - Gia tri `newAngle` tu Accel duoc xu ly ben ngoai de chuyen doi tu `g` sang `deg`
+ * \note - Ket hop `newRate` (Gyro) duoc xu ly ben trong Kalman filter va `newAngle` (Accel) duoc xu ly ben ngoai de tao ra duoc goc nghieng muot, it nhieu, it troi 
  * 
  * @param kf Con tro toi struct
  * @param newAngle Goc do duoc tu Accelerometer sau khi duoc chuyen doi tu gia toc goc `g` sang don vi `deg`
