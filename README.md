@@ -276,6 +276,17 @@ TenSubmodule @ commit Hash
   ***
   ### Cách loại bỏ folder `build` khi up lên gitHub ###
   Folder `build` được tạo ra trong qua trình biên dịch dự án Esp-idf, đây là thư mục tạm, chứa tất cả các file và dữ liệu cần thiết để biên dịch, liên kết và tạo firmware cuối cùng.
+
+### Một vài lênh submodule hay dùng khác (nên biết)
+- Chẳng may folder bạn clone về (có kèm submodule) mà bạn lại thay đổi nội dung file bên trong submodule đó (thay đổi nhiều -> Cố tính 😭) làm cho git track thấy và đòi push lên mà trong khi folder repo bạn clone về không phải của bạn và bạn không muốn thay đổi nó thì dùng các lệnh bash sau để reset lại toàn bộ submodule:
+```bash
+git submodule foreach --recursive git reset --hard
+# git reset --hard: Lệnh này sẽ xóa toàn bộ thay đổi cục bộ
+
+git submodule foreach --recursive git clean -df
+# git clean -df: -f là lệnh force, -d để xóa các file/folder mà git untracked 
+```
+- Các lênh trên sẽ hoàn nguyên cả Repo y hệt trên Github
   
 #### Nội dung chính của thư mục `build` ####
 1. File nhị phân (Binary)
