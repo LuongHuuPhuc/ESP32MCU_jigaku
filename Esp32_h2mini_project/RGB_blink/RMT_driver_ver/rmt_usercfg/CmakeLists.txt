@@ -1,0 +1,3 @@
+idf_component_register(SRCS "rmt_usercfg.c"
+                       INCLUDE_DIRS "."
+                       REQUIRES driver esp_driver_rmt)
